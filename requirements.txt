@@ -7,3 +7,5 @@ beautifulsoup4
 vaderSentiment
 chromadb
 langchain-text-splitters
+langchain-ollama 
+langchain-core

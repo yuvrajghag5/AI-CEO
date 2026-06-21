@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T15:49:22.332920+00:00",
+  "generated_at": "2026-06-21T18:57:23.804417+00:00",
   "opportunities": [
     {
       "title": "new product launch",
@@ -411,6 +411,122 @@
           "title": "Chinese EV Makers Shift to Proprietary Chips, Reducing Reliance on Nvidia",
           "url": "https://www.naturalnews.com/2026-06-17-chinese-ev-makers-shift-proprietary-chips-nvidia.html",
           "excerpt": "ways, according to the BBC. [8]ReferencesNaturalNews.com. \"80% of New Leading Research in Advanced Technological Fields Comes from China.\" September 20, 2023.Trends-Journal-2024-05-19.Mike Adams interview with Jeffrey Prather. April 22, 2025.CarNewsChina. \"BYD Released Xuanji A3 ADAS Chip as It"
+        }
+      ]
+    }
+  ],
+  "competitor_activity": [
+    {
+      "title": "competitor product launch",
+      "confidence": 0.79,
+      "impact": "High",
+      "supporting_doc_ids": [
+        34,
+        5,
+        167,
+        10,
+        13,
+        48,
+        90,
+        158
+      ],
+      "evidence": [
+        {
+          "doc_id": 167,
+          "source": "hackernews",
+          "title": "Rivals Intel and AMD Team Up on PC Chips to Battle Nvidia",
+          "url": "https://news.ycombinator.com/item?id=15635249",
+          "excerpt": "is basically every startup. Many of the quiet successes take decades. This is most businesses in general where healthy and creatively destructive competition takes place."
+        },
+        {
+          "doc_id": 158,
+          "source": "hackernews",
+          "title": "Hugging Face raises $235M from investors including Salesforce and Nvidia",
+          "url": "https://news.ycombinator.com/item?id=37248895",
+          "excerpt": "IBM, Salesforce and Sound Ventures\". For at least half of them, it might make sense to simply sponsor accelerating worldwide new AI product development because those new products will increase sales of their hardware and services; pitch in $20m together with others to support efforts like"
+        },
+        {
+          "doc_id": 5,
+          "source": "newsapi",
+          "title": "Google is using Nvidia’s own playbook to break its grip on AI chips",
+          "url": "https://thenextweb.com/news/google-nvidia-playbook-tpu-circular-financing-anthropic/",
+          "excerpt": "me more joy than when you buy everything from Nvidia. But it gives me tremendous joy if you just buy something from Nvidia.” Google is not the only challenger. AMD, Broadcom and Cerebras are circling, and Amazon is running the same play with its$50bn Trainium businessand its huge Anthropic"
+        }
+      ]
+    },
+    {
+      "title": "competitor partnership",
+      "confidence": 0.8,
+      "impact": "High",
+      "supporting_doc_ids": [
+        129,
+        34,
+        36,
+        41,
+        106,
+        108,
+        63
+      ],
+      "evidence": [
+        {
+          "doc_id": 106,
+          "source": "hackernews",
+          "title": "Nvidia Warp: A Python framework for high performance GPU simulation and graphics",
+          "url": "https://news.ycombinator.com/item?id=40680737",
+          "excerpt": "developing competing products or technologies or assist a third party in such activities.\" vs \"California’s public policy provides that every contract that restrains anyone from engaging in a lawful profession, trade, or business of any kind is, to that extent, void, except under limited statutory"
+        },
+        {
+          "doc_id": 63,
+          "source": "rss",
+          "title": "Seoul Purpose: How NVIDIA and South Korea Are Building the Future of AI",
+          "url": "https://blogs.nvidia.com/blog/korea-ecosystem-2026/",
+          "excerpt": "200 partners from every part of the Korea AI ecosystem,corresponding to thefive‑layer cake. “I’m very happy to be here with all of you. This is Korea’s ecosystem,” Huang said. “This is the industrial base. This is the venture investors. This is the young entrepreneurs. We brought them all together."
+        },
+        {
+          "doc_id": 36,
+          "source": "newsapi",
+          "title": "Bull and Foxconn advance European AI infrastructure with NVIDIA Vera Rubin NVL72 platform built in Europe",
+          "url": "https://www.globenewswire.com/news-release/2026/06/17/3313162/0/en/Bull-and-Foxconn-advance-European-AI-infrastructure-with-NVIDIA-Vera-Rubin-NVL72-platform-built-in-Europe.html",
+          "excerpt": "expertise to give customers greater control over how systems are deployed, secured and optimised - extending the “made in Europe” model from manufacturing to operations. Together, these developments reinforce the ambition behind the Bull–Foxconn partnership: anchoring a more resilient and efficient"
+        }
+      ]
+    },
+    {
+      "title": "competitor market share",
+      "confidence": 0.72,
+      "impact": "High",
+      "supporting_doc_ids": [
+        98,
+        131,
+        101,
+        108,
+        77,
+        84,
+        150,
+        92,
+        158
+      ],
+      "evidence": [
+        {
+          "doc_id": 101,
+          "source": "hackernews",
+          "title": "Alibaba Cloud says it cut Nvidia AI GPU use by 82% with new pooling system",
+          "url": "https://news.ycombinator.com/item?id=45643163",
+          "excerpt": "markets. The more appropriate comparison is with European automakers such as VW Group, Stellantis (Peugeot, Citroën, DS, Fiat, Chrysler, Dodge, Ram), Renault. And there too BYD is winning as well in mosy countries, but at least there's a comparison possible. The US couldn't compete anyway. The US"
+        },
+        {
+          "doc_id": 92,
+          "source": "hackernews",
+          "title": "The impact of competition and DeepSeek on Nvidia",
+          "url": "https://news.ycombinator.com/item?id=42822162",
+          "excerpt": "profits. Anyway, I hope people here find it interesting to read, and I welcome any debate or discussion about my arguments. Good article. Maybe I missed it, but I see lots of analysis without a clear concluding opinion. Wanted to add a preface: Thank you for your time on this article, I appreciate"
+        },
+        {
+          "doc_id": 158,
+          "source": "hackernews",
+          "title": "Hugging Face raises $235M from investors including Salesforce and Nvidia",
+          "url": "https://news.ycombinator.com/item?id=37248895",
+          "excerpt": "a strong market - they end up increasing the price of products to cover the purchase of acquisitions and losses. This results in inflation and worsening wealth distribution. The article is quite clear on whose money it is - \"Google, Amazon, Nvidia, Intel, AMD, Qualcomm, IBM, Salesforce and Sound"
         }
       ]
     }
