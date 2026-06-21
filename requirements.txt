@@ -1,0 +1,9 @@
+requests
+numpy
+pandas
+feedparser
+dotenv
+beautifulsoup4
+vaderSentiment
+chromadb
+langchain-text-splitters
