@@ -2,8 +2,15 @@
 
 
 
-import json
+import sys
 import os
+ 
+# Add project root to sys.path so `config.paths` etc. are importable
+# regardless of which directory this script is launched from (Streamlit
+# sets the script's own folder as the import root, not the project root).
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ 
+import json
 from collections import Counter
 from datetime import datetime
  
