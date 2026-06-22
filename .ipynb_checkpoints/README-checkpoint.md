@@ -122,12 +122,12 @@ flowchart TD
     A[Public Data Sources] --> A1[NewsAPI]
     A --> A2[RSS Feeds]
     A --> A3[Hacker News]
-    A --> A4[Reddit - optional]
+    
 
     A1 --> B[Collectors Layer]
     A2 --> B
     A3 --> B
-    A4 --> B
+    
 
     B --> C[Raw JSON Storage\ndata/raw]
 
@@ -380,7 +380,6 @@ Responsible for collecting raw market/news/discussion data about NVIDIA.
 - `newsapi_collector.py`: Fetches articles from NewsAPI.
 - `rss_collector.py`: Fetches articles from RSS feeds.
 - `hackernews_collector.py`: Fetches Hacker News stories and comments.
-- `reddit_collector.py`: Fetches Reddit posts from selected subreddits.
 - `run_pipeline.py`: Runs selected collectors in sequence.
 
 ### `preprocess/`
