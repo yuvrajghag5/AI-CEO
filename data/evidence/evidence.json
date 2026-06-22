@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:57:23.804417+00:00",
+  "generated_at": "2026-06-22T00:31:25.206396+00:00",
   "opportunities": [
     {
       "title": "new product launch",
@@ -114,14 +114,14 @@
     },
     {
       "title": "new market expansion",
-      "confidence": 0.86,
+      "confidence": 0.87,
       "impact": "High",
       "supporting_doc_ids": [
         40,
         140,
+        48,
         83,
         19,
-        84,
         120,
         158
       ],
@@ -341,16 +341,16 @@
     },
     {
       "title": "customer behavior change",
-      "confidence": 0.84,
+      "confidence": 0.86,
       "impact": "High",
       "supporting_doc_ids": [
         105,
         48,
-        146,
         147,
         84,
         153,
         154,
+        127,
         25,
         159
       ],
@@ -493,13 +493,13 @@
     },
     {
       "title": "competitor market share",
-      "confidence": 0.72,
+      "confidence": 0.73,
       "impact": "High",
       "supporting_doc_ids": [
         98,
         131,
         101,
-        108,
+        5,
         77,
         84,
         150,

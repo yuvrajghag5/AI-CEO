@@ -126,6 +126,8 @@ Rules:
 - Every recommendation must mention at least one source ID such as [S1], [S2], or [R1].
 - Do not invent source IDs.
 - Keep the answer business-focused.
+- Do NOT use markdown formatting symbols such as **, *, _, or backslashes. Write in plain text only.
+- Use the exact numbered headers shown above (e.g. "1. Executive Summary") with no extra symbols around them.
 - Stop immediately after the CEO Action Plan.
 - Do not add any final note.
 CEO Briefing:

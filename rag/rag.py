@@ -1,25 +1,36 @@
 
 import chromadb
-from langchain_ollama import ChatOllama
-from prompt import RAG_PROMPT
-from config.settings import TOP_K, OLLAMA_MODEL
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from rag.prompt import RAG_PROMPT
+from config.settings import TOP_K, MODEL, MAX_NEW_TOKENS_RAG, NO_REPEAT_NGRAM_SIZE, REPETITION_PENALTY, DO_SAMPLE, TOP_P, TEMPERATURE
 from config.paths import VECTORDB
- 
+
 CHROMA_DIR = VECTORDB / "./chroma_db"
 COLLECTION_NAME = "ai_ceo_documents"
-OLLAMA_MODEL = OLLAMA_MODEL   # <-- match whatever you pulled via `ollama pull`
+MODEL_NAME = MODEL   
 TOP_K = TOP_K
- 
-# Simple in-session memory: list of {"question": ..., "answer": ...} dicts.
-# Not persisted to disk — resets every time the script restarts.
-# Significance: lets follow-up questions reference earlier answers,
-# instead of every question being treated as the first one ever asked.
+MAX_NEW_TOKENS = MAX_NEW_TOKENS_RAG
+NO_REPEAT_NGRAM_SIZE = NO_REPEAT_NGRAM_SIZE
+REPETITION_PENALTY = REPETITION_PENALTY
+DO_SAMPLE = DO_SAMPLE
+TOP_P = TOP_P
+TEMPERATURE = TEMPERATURE
+
 memory = []
- 
- 
 def get_collection():
     client = chromadb.PersistentClient(path=CHROMA_DIR)
     return client.get_or_create_collection(COLLECTION_NAME)
+ 
+ 
+def load_model():
+    print(f"Loading {MODEL_NAME} ... (this can take a while on first run)")
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_NAME,
+        torch_dtype="auto",
+        device_map="auto",
+    )
+    return tokenizer, model
  
  
 def retrieve_context(collection, question, top_k=TOP_K):
@@ -42,13 +53,33 @@ def format_history(memory, max_turns=3):
     return "\n".join(f"Q: {turn['question']}\nA: {turn['answer']}" for turn in recent)
  
  
-def answer_question(question, llm, collection):
+def generate_response(prompt_text, tokenizer, model):
+    messages = [{"role": "user", "content": prompt_text}]
+    chat_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+ 
+    inputs = tokenizer(chat_text, return_tensors="pt").to(model.device)
+ 
+    output_ids = model.generate(
+        **inputs,
+        max_new_tokens=MAX_NEW_TOKENS,
+        do_sample= DO_SAMPLE,
+        temperature = TEMPERATURE,
+        top_p = TOP_P,
+        repetition_penalty=REPETITION_PENALTY,
+        no_repeat_ngram_size=NO_REPEAT_NGRAM_SIZE,
+        pad_token_id=tokenizer.eos_token_id,
+    )
+ 
+    generated_tokens = output_ids[0][inputs["input_ids"].shape[1]:]
+    return tokenizer.decode(generated_tokens, skip_special_tokens=True)
+ 
+ 
+def answer_question(question, tokenizer, model, collection):
     context = retrieve_context(collection, question)
     history = format_history(memory)
  
     prompt_text = RAG_PROMPT.format(history=history, context=context, question=question)
-    response = llm.invoke(prompt_text)
-    answer = response.content.strip()
+    answer = generate_response(prompt_text, tokenizer, model).strip()
  
     memory.append({"question": question, "answer": answer})
     return answer
@@ -60,17 +91,17 @@ def main():
         print("ChromaDB collection is empty. Run store.py first.")
         return
  
-    llm = ChatOllama(model=OLLAMA_MODEL)
+    tokenizer, model = load_model()
  
     print("RAG chat ready. Type 'exit' to quit.\n")
     while True:
-        question = input("You: ").strip()
+        question = "If you were the CEO of NVIDIA today, what would you do next and why?"   #input("You: ").strip()
         if question.lower() in ("exit", "quit"):
             break
         if not question:
             continue
  
-        answer = answer_question(question, llm, collection)
+        answer = answer_question(question, tokenizer, model, collection)
         print(f"\nAgent: {answer}\n")
  
  

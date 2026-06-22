@@ -9,3 +9,6 @@ chromadb
 langchain-text-splitters
 langchain-ollama 
 langchain-core
+transformers
+torch
+accelerate
