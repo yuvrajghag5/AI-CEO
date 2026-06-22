@@ -1,6 +1,7 @@
 
 import chromadb
-from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer,  BitsAndBytesConfig
 from rag.prompt import RAG_PROMPT
 from config.settings import TOP_K, MODEL, MAX_NEW_TOKENS_RAG, NO_REPEAT_NGRAM_SIZE, REPETITION_PENALTY, DO_SAMPLE, TOP_P, TEMPERATURE
 from config.paths import VECTORDB
@@ -16,7 +17,12 @@ DO_SAMPLE = DO_SAMPLE
 TOP_P = TOP_P
 TEMPERATURE = TEMPERATURE
 
+# Fixed question — matches the one required query for this project.
+CEO_QUESTION = "If you were the CEO of NVIDIA today, what would you do next and why?"
+ 
 memory = []
+
+ 
 def get_collection():
     client = chromadb.PersistentClient(path=CHROMA_DIR)
     return client.get_or_create_collection(COLLECTION_NAME)
@@ -25,11 +31,27 @@ def get_collection():
 def load_model():
     print(f"Loading {MODEL_NAME} ... (this can take a while on first run)")
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-    model = AutoModelForCausalLM.from_pretrained(
-        MODEL_NAME,
-        torch_dtype="auto",
-        device_map="auto",
+ 
+    quant_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_compute_dtype=torch.bfloat16,
+        bnb_4bit_quant_type="nf4",
     )
+ 
+    try:
+        model = AutoModelForCausalLM.from_pretrained(
+            MODEL_NAME,
+            quantization_config=quant_config,
+            device_map="auto",
+        )
+    except torch.cuda.OutOfMemoryError:
+        print("  GPU out of memory (shared GPU likely busy) — falling back to CPU. This will be slower.")
+        torch.cuda.empty_cache()
+        model = AutoModelForCausalLM.from_pretrained(
+            MODEL_NAME,
+            device_map="cpu",
+        )
+ 
     return tokenizer, model
  
  
@@ -62,9 +84,9 @@ def generate_response(prompt_text, tokenizer, model):
     output_ids = model.generate(
         **inputs,
         max_new_tokens=MAX_NEW_TOKENS,
-        do_sample= DO_SAMPLE,
-        temperature = TEMPERATURE,
-        top_p = TOP_P,
+        do_sample=DO_SAMPLE,
+        temperature=TEMPERATURE,
+        top_p=TOP_P,
         repetition_penalty=REPETITION_PENALTY,
         no_repeat_ngram_size=NO_REPEAT_NGRAM_SIZE,
         pad_token_id=tokenizer.eos_token_id,
@@ -93,17 +115,14 @@ def main():
  
     tokenizer, model = load_model()
  
-    print("RAG chat ready. Type 'exit' to quit.\n")
-    while True:
-        question = "If you were the CEO of NVIDIA today, what would you do next and why?"   #input("You: ").strip()
-        if question.lower() in ("exit", "quit"):
-            break
-        if not question:
-            continue
+    answer = answer_question(CEO_QUESTION, tokenizer, model, collection)
  
-        answer = answer_question(question, tokenizer, model, collection)
-        print(f"\nAgent: {answer}\n")
+    print("\n" + "=" * 60)
+    print(f"QUESTION: {CEO_QUESTION}")
+    print("=" * 60 + "\n")
+    print(answer)
  
  
 if __name__ == "__main__":
     main()
+ 

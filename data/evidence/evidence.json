@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T00:31:25.206396+00:00",
+  "generated_at": "2026-06-22T14:48:43.235606+00:00",
   "opportunities": [
     {
       "title": "new product launch",
@@ -7,10 +7,9 @@
       "impact": "High",
       "supporting_doc_ids": [
         36,
-        167,
         41,
-        110,
         48,
+        176,
         50,
         121,
         158
@@ -41,13 +40,11 @@
     },
     {
       "title": "partnership announcement",
-      "confidence": 0.97,
+      "confidence": 0.96,
       "impact": "High",
       "supporting_doc_ids": [
-        36,
         40,
         41,
-        19,
         121,
         29,
         63
@@ -114,14 +111,14 @@
     },
     {
       "title": "new market expansion",
-      "confidence": 0.87,
+      "confidence": 0.85,
       "impact": "High",
       "supporting_doc_ids": [
         40,
         140,
         48,
         83,
-        19,
+        84,
         120,
         158
       ],
@@ -153,12 +150,12 @@
   "risks": [
     {
       "title": "regulatory investigation",
-      "confidence": 0.66,
-      "impact": "Medium",
+      "confidence": 0.7,
+      "impact": "High",
       "supporting_doc_ids": [
+        192,
         39,
         106,
-        147,
         93,
         150,
         120,
@@ -180,25 +177,23 @@
           "excerpt": "precision, repeatability and regulatory traceability in both manufacturing and research environments. Labor shortages, tightening compliance demands and the rising complexity of biopharmaceutical workflows are speeding up this adoption. This shift is both structural and pressing. Pharmaceutical"
         },
         {
-          "doc_id": 150,
-          "source": "hackernews",
-          "title": "SEC charges Nvidia with inadequate disclosures about impact of cryptomining",
-          "url": "https://news.ycombinator.com/item?id=31407397",
-          "excerpt": "pay a $5.5 million penalty.\" Cost of doing business. Yes, on the other hand not being called out by the SEC for insufficient disclosures helps with investor trust. thats pocket money for nvidia More like the SEC lacked evidence that this was intentional. Remember about the SEC whistleblower"
+          "doc_id": 192,
+          "source": "rss",
+          "title": "Electric air taxis are stuck in the courtroom",
+          "url": "https://www.theverge.com/column/950975/electric-air-taxis-lawsuits",
+          "excerpt": "approval, are growing increasingly nervous about the enormous costs required by these lawsuits. As companies race to dominate a brand-new,potentially multibillion-dollar aviation industry, these disputes over intellectual property, competition, and talent are triggering an aggressive wave of"
         }
       ]
     },
     {
       "title": "competitive threat",
-      "confidence": 0.62,
+      "confidence": 0.64,
       "impact": "Medium",
       "supporting_doc_ids": [
-        129,
-        101,
+        3,
         5,
         11,
         140,
-        44,
         93
       ],
       "evidence": [
@@ -227,15 +222,15 @@
     },
     {
       "title": "supply chain disruption",
-      "confidence": 0.69,
+      "confidence": 0.66,
       "impact": "Medium",
       "supporting_doc_ids": [
         34,
         36,
         40,
+        115,
         150,
         87,
-        120,
         89
       ],
       "evidence": [
@@ -267,11 +262,11 @@
       "confidence": 0.66,
       "impact": "Medium",
       "supporting_doc_ids": [
-        128,
         65,
         43,
         146,
         147,
+        184,
         25,
         93
       ],
@@ -284,18 +279,18 @@
           "excerpt": "operate without profits — or even incurring losses — in order to serve the public good, promote an ideology, engage in activism, spread misinformation, etc. spread misinformation? which major media operations are operating at a loss how for the public good (discounting state run) and how? spread"
         },
         {
+          "doc_id": 184,
+          "source": "rss",
+          "title": "Patreon CEO Jack Conte on supporting artists in the AI slop era",
+          "url": "https://www.theverge.com/podcast/952607/patreon-ceo-jack-conte",
+          "excerpt": "awesome. But the systems and subsystems that we’re using layered on top of the internet, like social media, those systems are a bad implementation of those principles that have had a really harmful effect on humans at a scale that is hard to even comprehend. Something needs to change. When we look"
+        },
+        {
           "doc_id": 146,
           "source": "hackernews",
           "title": "Nvidia to join Dow Jones Industrial Average, replacing Intel",
           "url": "https://news.ycombinator.com/item?id=42022282",
           "excerpt": "media or the blogosphere. Though there are some instances of major state-run companies, even on TV and on the radio, that operate in a similar fashion. Also, I am surely not equating the spread of misinformation with serving the public good — these are just distinct objectives that may be sought by"
-        },
-        {
-          "doc_id": 25,
-          "source": "newsapi",
-          "title": "Americans’ Way Of Life Is About To Change Forever, Nvidia CEO Warns",
-          "url": "https://dailycaller.com/2026/06/17/nvidia-social-norms-ai-boom/",
-          "excerpt": "promotes competition, rewards entrepreneurship, and positions the United States to lead the world in the industries that will define the future.” All content created by the Daily Caller News Foundation, an independent and nonpartisan newswire service, is available without charge to any legitimate"
         }
       ]
     }
@@ -303,16 +298,13 @@
   "trends": [
     {
       "title": "industry shift",
-      "confidence": 0.93,
+      "confidence": 0.84,
       "impact": "High",
       "supporting_doc_ids": [
         34,
-        36,
         101,
-        37,
-        139,
-        83,
-        120,
+        175,
+        176,
         29
       ],
       "evidence": [
@@ -324,34 +316,31 @@
           "excerpt": "rather than a temporary one. Developed economies are dealing with aging workforces and limited pipelines of skilled labor. Operating costs in labor-intensive industries keep climbing. Regulatory demands across healthcare, pharmaceuticals and advanced manufacturing are becoming tougher, not easier."
         },
         {
-          "doc_id": 34,
+          "doc_id": 176,
           "source": "newsapi",
-          "title": "Chinese EV Makers Shift to Proprietary Chips, Reducing Reliance on Nvidia",
-          "url": "https://www.naturalnews.com/2026-06-17-chinese-ev-makers-shift-proprietary-chips-nvidia.html",
-          "excerpt": "The shift is driven by U.S. export controls and the rapid adoption of smart-driving features in Chinaâs mass market, according to analysts cited in company statements. Chinaâs broader pivot toward application-specific silicon, accelerated by geopolitical restrictions and economic necessity, is"
+          "title": "Semiconductor Stocks Fall After Microsoft Ends Oracle Cloud Deal Talks",
+          "url": "https://www.naturalnews.com/2026-06-20-semiconductor-stocks-fall-microsoft-ends-oracle-deal.html",
+          "excerpt": "industry remains at the center of the global economy. Maury Klein, in his book âThe Change Makers,â notes that the invention of the integrated circuit by Robert Noyce in 1959 gave rise to a major new industry and transformed business practices [5]. Today, companies like Nvidia continue to"
         },
         {
-          "doc_id": 34,
+          "doc_id": 176,
           "source": "newsapi",
-          "title": "Chinese EV Makers Shift to Proprietary Chips, Reducing Reliance on Nvidia",
-          "url": "https://www.naturalnews.com/2026-06-17-chinese-ev-makers-shift-proprietary-chips-nvidia.html",
-          "excerpt": "Strategic Innovation in EV Industry.\" BrightVideos.com. February 17, 2026. Forces Behind the ShiftTwo primary forces are pushing Chinese carmakers to design their own chips: geopolitical pressure and economic necessity. U.S. export controls have steadily tightened access to Nvidiaâs most powerful"
+          "title": "Semiconductor Stocks Fall After Microsoft Ends Oracle Cloud Deal Talks",
+          "url": "https://www.naturalnews.com/2026-06-20-semiconductor-stocks-fall-microsoft-ends-oracle-deal.html",
+          "excerpt": "The semiconductor industry remains at the center of the global economy. Maury Klein, in his book âThe Change Makers,â notes that the invention of the integrated circuit by Robert Noyce in 1959 gave rise to a major new industry and transformed business practices [5]. Today, companies like Nvidia"
         }
       ]
     },
     {
       "title": "customer behavior change",
-      "confidence": 0.86,
+      "confidence": 0.82,
       "impact": "High",
       "supporting_doc_ids": [
-        105,
         48,
         147,
         84,
         153,
         154,
-        127,
-        25,
         159
       ],
       "evidence": [
@@ -380,13 +369,13 @@
     },
     {
       "title": "technology adoption trend",
-      "confidence": 0.93,
+      "confidence": 0.89,
       "impact": "High",
       "supporting_doc_ids": [
         34,
         137,
         139,
-        108,
+        176,
         120,
         59
       ],
@@ -418,16 +407,16 @@
   "competitor_activity": [
     {
       "title": "competitor product launch",
-      "confidence": 0.79,
+      "confidence": 0.8,
       "impact": "High",
       "supporting_doc_ids": [
+        192,
         34,
         5,
         167,
         10,
         13,
         48,
-        90,
         158
       ],
       "evidence": [
@@ -446,11 +435,11 @@
           "excerpt": "IBM, Salesforce and Sound Ventures\". For at least half of them, it might make sense to simply sponsor accelerating worldwide new AI product development because those new products will increase sales of their hardware and services; pitch in $20m together with others to support efforts like"
         },
         {
-          "doc_id": 5,
-          "source": "newsapi",
-          "title": "Google is using Nvidia’s own playbook to break its grip on AI chips",
-          "url": "https://thenextweb.com/news/google-nvidia-playbook-tpu-circular-financing-anthropic/",
-          "excerpt": "me more joy than when you buy everything from Nvidia. But it gives me tremendous joy if you just buy something from Nvidia.” Google is not the only challenger. AMD, Broadcom and Cerebras are circling, and Amazon is running the same play with its$50bn Trainium businessand its huge Anthropic"
+          "doc_id": 192,
+          "source": "rss",
+          "title": "Electric air taxis are stuck in the courtroom",
+          "url": "https://www.theverge.com/column/950975/electric-air-taxis-lawsuits",
+          "excerpt": "approval, are growing increasingly nervous about the enormous costs required by these lawsuits. As companies race to dominate a brand-new,potentially multibillion-dollar aviation industry, these disputes over intellectual property, competition, and talent are triggering an aggressive wave of"
         }
       ]
     },
@@ -459,7 +448,7 @@
       "confidence": 0.8,
       "impact": "High",
       "supporting_doc_ids": [
-        129,
+        192,
         34,
         36,
         41,
@@ -496,10 +485,10 @@
       "confidence": 0.73,
       "impact": "High",
       "supporting_doc_ids": [
+        192,
         98,
         131,
         101,
-        5,
         77,
         84,
         150,

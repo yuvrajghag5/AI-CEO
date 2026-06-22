@@ -12,3 +12,8 @@ langchain-core
 transformers
 torch
 accelerate
+outlines
+bitsandbytes>=0.46.1
+pyngrok
+streamlit 
+plotly 

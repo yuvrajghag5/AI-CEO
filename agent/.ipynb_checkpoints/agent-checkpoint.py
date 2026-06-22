@@ -1,33 +1,27 @@
 
+
 import json
 import os
-import re
 from datetime import datetime, timezone
-import torch
 import chromadb
+import outlines
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from config.paths import VECTORDB, EVIDENCE
-from config.settings import MODEL, TOP_K, MAX_NEW_TOKENS_AGENT, DO_SAMPLE, REPETITION_PENALTY, NO_REPEAT_NGRAM_SIZE, TOP_P, TEMPERATURE
+from config.settings import MODEL, TOP_K, MAX_NEW_TOKENS_AGENT
 from rag.prompt import CEO_PROMPT_TEMPLATE
+from agent.schema import CEOBriefing
  
 EVIDENCE_FILE = EVIDENCE / "evidence.json"
-CHROMA_DIR = VECTORDB / "./chroma_db"
+CHROMA_DIR = VECTORDB / "chroma_db"
 COLLECTION_NAME = "ai_ceo_documents"
 OUTPUT_FILE = EVIDENCE / "ceo_report.json"
-MODEL_NAME = MODEL   
+MODEL_NAME = MODEL
 COMPANY_NAME = "NVIDIA"
 TOP_K_RETRIEVED_CONTEXT = TOP_K
 MAX_NEW_TOKENS = MAX_NEW_TOKENS_AGENT
-NO_REPEAT_NGRAM_SIZE = NO_REPEAT_NGRAM_SIZE
-REPETITION_PENALTY = REPETITION_PENALTY
-DO_SAMPLE = DO_SAMPLE
-TOP_P = TOP_P
-TEMPERATURE = TEMPERATURE
+ 
 CEO_QUESTION = "If you were the CEO of NVIDIA today, what would you do next and why?"
 memory = []
-
-
-
  
  
 def load_evidence():
@@ -39,29 +33,39 @@ def load_evidence():
  
  
 def get_collection():
-    client = chromadb.PersistentClient(path=CHROMA_DIR)
+    client = chromadb.PersistentClient(path=str(CHROMA_DIR))
     return client.get_or_create_collection(COLLECTION_NAME)
  
  
 def load_model():
+    """
+    Loads the model/tokenizer via transformers as usual, then wraps
+    them with outlines so generation can be schema-constrained.
+    """
     print(f"Loading {MODEL_NAME} ... (this can take a while on first run)")
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-    model = AutoModelForCausalLM.from_pretrained(
+    hf_model = AutoModelForCausalLM.from_pretrained(
         MODEL_NAME,
         torch_dtype="auto",
         device_map="auto",
     )
+    model = outlines.from_transformers(hf_model, tokenizer)
     return tokenizer, model
  
  
 def format_strategic_evidence(evidence):
     """
     Flatten evidence.json into plain text, assigning a source ID
-    (e.g. [S1], [S2]) to every individual evidence excerpt across all
-    categories. These are the ONLY valid source IDs the LLM is allowed
-    to cite — it should never invent its own.
+    (e.g. S1, S2) to every individual evidence excerpt across all
+    categories. These are the ONLY valid source IDs the LLM should
+    cite — it should never invent its own.
+ 
+    Returns (formatted_text, source_lookup) where source_lookup maps
+    each ID to its actual evidence detail, so the dashboard can show
+    the real text behind a citation like "S3" instead of just the ID.
     """
     lines = []
+    source_lookup = {}
     source_id_counter = 1
  
     for category in ("opportunities", "risks", "trends", "competitor_activity"):
@@ -73,60 +77,87 @@ def format_strategic_evidence(evidence):
         for item in items:
             lines.append(f"- {item['title']} (confidence: {item['confidence']}, impact: {item['impact']})")
             for ev in item.get("evidence", [])[:2]:
-                source_id = f"[S{source_id_counter}]"
-                lines.append(f"    {source_id} [{ev['source']}] {ev['title']} — {ev['excerpt'][:200]}")
+                source_id = f"S{source_id_counter}"
+                lines.append(f"    [{source_id}] [{ev['source']}] {ev['title']} — {ev['excerpt'][:200]}")
+                source_lookup[source_id] = {
+                    "category": category,
+                    "source": ev.get("source"),
+                    "title": ev.get("title"),
+                    "url": ev.get("url"),
+                    "excerpt": ev.get("excerpt"),
+                }
                 source_id_counter += 1
  
-    return "\n".join(lines)
+    return "\n".join(lines), source_lookup
  
  
 def format_retrieved_context(collection, question, top_k=TOP_K_RETRIEVED_CONTEXT):
     """
     Additional ChromaDB retrieval for the specific question being asked,
-    on top of the pre-computed evidence.json. Assigns [R1], [R2]... IDs.
+    on top of the pre-computed evidence.json. Assigns R1, R2... IDs.
+ 
+    Returns (formatted_text, source_lookup), same purpose as
+    format_strategic_evidence above.
     """
-    results = collection.query(query_texts=[question], n_results=top_k)
+    results = collection.query(query_texts=[question], n_results=top_k, include=["metadatas", "documents", "distances"])
  
     lines = []
+    source_lookup = {}
     for i in range(len(results["ids"][0])):
         meta = results["metadatas"][0][i]
         text = results["documents"][0][i]
-        retrieved_id = f"[R{i + 1}]"
-        lines.append(f"{retrieved_id} [{meta.get('source')}] {meta.get('title')} — {text[:200]}")
+        distance = results["distances"][0][i] if results.get("distances") else None
+        retrieved_id = f"R{i + 1}"
+        lines.append(f"[{retrieved_id}] [{meta.get('source')}] {meta.get('title')} — {text[:200]}")
+        source_lookup[retrieved_id] = {
+            "category": "retrieved_context",
+            "source": meta.get("source"),
+            "title": meta.get("title"),
+            "url": meta.get("url"),
+            "excerpt": text[:200],
+            "score": round(1 - distance, 4) if distance is not None else None,
+        }
  
-    return "\n".join(lines) if lines else "(no additional context retrieved)"
+    formatted = "\n".join(lines) if lines else "(no additional context retrieved)"
+    return formatted, source_lookup
  
  
-def validate_and_trim(raw_output):
+def build_sources_used(sources_lookup):
     """
-    Basic post-processing for a local model's output:
-      - cut off anything after the CEO Action Plan section (in case the
-        model rambles on despite being told to stop)
-      - warn (not crash) if expected sections are missing, so you know
-        the run needs a retry rather than silently shipping a broken briefing
+    Groups the flat {source_id: detail} lookup by underlying document
+    (title + url), merging every source_id that points to the same
+    article into one entry — matching the "sources_used" format used
+    elsewhere in the project (one row per real document, not per ID).
     """
-    text = raw_output.strip()
+    grouped = {}
  
-    action_plan_match = re.search(r"7\.\s*CEO Action Plan", text, re.IGNORECASE)
-    if action_plan_match:
-        after_plan = text[action_plan_match.start():]
-        trimmed = re.split(r"\n\s*(?=(?:Note|Disclaimer|---|\Z))", after_plan, maxsplit=1)[0]
-        text = text[:action_plan_match.start()] + trimmed
+    for source_id, detail in sources_lookup.items():
+        key = (detail.get("title"), detail.get("url"))
+        if key not in grouped:
+            grouped[key] = {
+                "source_ids": [],
+                "categories": set(),
+                "source": detail.get("source"),
+                "title": detail.get("title"),
+                "url": detail.get("url"),
+                "score": detail.get("score"),
+            }
+        grouped[key]["source_ids"].append(source_id)
+        grouped[key]["categories"].add(detail.get("category"))
  
-    required_sections = [
-        "Executive Summary",
-        "Key Opportunities",
-        "Key Risks",
-        "Competitor Activity",
-        "Emerging Trends",
-        "Strategic Recommendations",
-        "CEO Action Plan",
-    ]
-    missing = [s for s in required_sections if s.lower() not in text.lower()]
-    if missing:
-        print(f"  [warning] briefing is missing expected section(s): {missing} — consider regenerating")
+    sources_used = []
+    for entry in grouped.values():
+        sources_used.append({
+            "source_id": ", ".join(sorted(entry["source_ids"])),
+            "type": "strategic_evidence" if any(sid.startswith("S") for sid in entry["source_ids"]) else "retrieved_context",
+            "category": ", ".join(sorted(entry["categories"])),
+            "title": entry["title"],
+            "source": entry["source"],
+            "url": entry["url"],
+            "score": entry["score"],
+        })
  
-    return text.strip()
+    return sources_used
  
  
 def format_history(memory, max_turns=3):
@@ -136,69 +167,10 @@ def format_history(memory, max_turns=3):
     return "\n".join(f"Q: {turn['question']}\nA: {turn['answer']}" for turn in recent)
  
  
-# Section headers exactly as required by CEO_PROMPT_TEMPLATE, in order.
-SECTION_HEADERS = [
-    ("executive_summary", r"1\.\s*Executive Summary"),
-    ("key_opportunities", r"2\.\s*Key Opportunities"),
-    ("key_risks", r"3\.\s*Key Risks"),
-    ("competitor_activity", r"4\.\s*Competitor Activity"),
-    ("emerging_trends", r"5\.\s*Emerging Trends"),
-    ("strategic_recommendations", r"6\.\s*Strategic Recommendations"),
-    ("ceo_action_plan", r"7\.\s*CEO Action Plan"),
-]
- 
- 
-def parse_briefing_sections(text):
-    """
-    Splits the model's raw structured output into a dict of named
-    sections, so the dashboard can render each part separately
-    (e.g. a Recommendations panel, an Action Plan panel) instead of
-    only having one giant text blob.
-    """
-    positions = []
-    for name, pattern in SECTION_HEADERS:
-        match = re.search(pattern, text, re.IGNORECASE)
-        if match:
-            positions.append((name, match.start()))
- 
-    positions.sort(key=lambda p: p[1])
- 
-    sections = {}
-    for i, (name, start) in enumerate(positions):
-        end = positions[i + 1][1] if i + 1 < len(positions) else len(text)
-        sections[name] = text[start:end].strip()
- 
-    # Make sure every expected key exists even if a section was missing
-    for name, _ in SECTION_HEADERS:
-        sections.setdefault(name, "")
- 
-    return sections
- 
- 
-def generate_response(prompt_text, tokenizer, model):
-    messages = [{"role": "user", "content": prompt_text}]
-    chat_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
- 
-    inputs = tokenizer(chat_text, return_tensors="pt").to(model.device)
- 
-    output_ids = model.generate(
-        **inputs,
-        max_new_tokens=MAX_NEW_TOKENS,
-        do_sample= DO_SAMPLE,
-        temperature = TEMPERATURE,
-        top_p = TOP_P,
-        repetition_penalty=REPETITION_PENALTY,
-        no_repeat_ngram_size=NO_REPEAT_NGRAM_SIZE,
-        pad_token_id=tokenizer.eos_token_id,
-    )
- 
-    generated_tokens = output_ids[0][inputs["input_ids"].shape[1]:]
-    return tokenizer.decode(generated_tokens, skip_special_tokens=True)
- 
- 
-def generate_briefing(question, tokenizer, model, collection, evidence):
-    strategic_evidence = format_strategic_evidence(evidence)
-    retrieved_context = format_retrieved_context(collection, question)
+def generate_briefing(question, model, collection, evidence):
+    strategic_evidence, strategic_lookup = format_strategic_evidence(evidence)
+    retrieved_context, retrieved_lookup = format_retrieved_context(collection, question)
+    sources_lookup = {**strategic_lookup, **retrieved_lookup}
  
     prompt_text = CEO_PROMPT_TEMPLATE.format(
         company=COMPANY_NAME,
@@ -207,28 +179,41 @@ def generate_briefing(question, tokenizer, model, collection, evidence):
         retrieved_context=retrieved_context,
     )
  
-    raw_output = generate_response(prompt_text, tokenizer, model)
-    cleaned = validate_and_trim(raw_output)
-    memory.append({"question": question, "answer": cleaned})
-    return cleaned
+    # outlines.Generator forces every generated token to keep the
+    # output valid against CEOBriefing's schema. The result is already
+    # a validated Pydantic object — no regex, no retry-on-malformed-JSON.
+    generator = outlines.Generator(model, CEOBriefing)
+    result = generator(prompt_text, max_new_tokens=MAX_NEW_TOKENS)
+ 
+    # outlines versions differ on whether this returns an already-parsed
+    # Pydantic object or a raw JSON string — handle both.
+    if isinstance(result, CEOBriefing):
+        briefing_obj = result
+    else:
+        briefing_obj = CEOBriefing.model_validate_json(result)
+ 
+    briefing_dict = briefing_obj.model_dump()
+    memory.append({"question": question, "answer": briefing_dict})
+    return briefing_dict, sources_lookup
  
  
-def save_report(question, raw_briefing, sections, evidence_used, retrieved_context_used):
+def save_report(question, briefing_dict, sources_lookup, evidence_used, retrieved_context_used):
     report = {
         "company": COMPANY_NAME,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "user_question": question,
         "strategic_context_used": evidence_used,
         "retrieved_context_used": retrieved_context_used,
-        "ceo_briefing_raw": raw_briefing,
-        "sections": sections,
     }
+    report.update(briefing_dict)
+    report["sources_used"] = build_sources_used(sources_lookup)  # one entry per real document
  
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2, ensure_ascii=False)
  
     print(f"\nSaved CEO report to {OUTPUT_FILE}")
+    return report
  
  
 def main():
@@ -239,23 +224,21 @@ def main():
     collection = get_collection()
     tokenizer, model = load_model()
  
-    briefing = generate_briefing(CEO_QUESTION, tokenizer, model, collection, evidence)
-    sections = parse_briefing_sections(briefing)
+    briefing_dict, sources_lookup = generate_briefing(CEO_QUESTION, model, collection, evidence)
  
-    print("\n" + "=" * 60)
-    print(f"CEO QUESTION: {CEO_QUESTION}")
-    print("=" * 60 + "\n")
-    print(briefing)
- 
-    save_report(
+    report = save_report(
         question=CEO_QUESTION,
-        raw_briefing=briefing,
-        sections=sections,
+        briefing_dict=briefing_dict,
+        sources_lookup=sources_lookup,
         evidence_used=True,
         retrieved_context_used=True,
     )
  
+    print("\n" + "=" * 60)
+    print(f"CEO QUESTION: {CEO_QUESTION}")
+    print("=" * 60 + "\n")
+    print(json.dumps(report, indent=2))
+ 
  
 if __name__ == "__main__":
     main()
- 
