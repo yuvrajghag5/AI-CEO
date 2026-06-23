@@ -108,6 +108,7 @@ AI-CEO/
 │   └── store.py                 # Stores document chunks in ChromaDB
 │
 ├── main.py                      # Starts Streamlit dashboard with optional ngrok tunnel
+├── app.py                       # Full Automation from Start to End
 ├── requirements.txt             # Python dependencies
 ├── .gitignore                   # Git ignore rules
 └── streamlit.log                # Streamlit runtime log file
