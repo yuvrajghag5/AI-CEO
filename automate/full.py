@@ -1,5 +1,4 @@
 from automate import block_1, block_2
-
 def main():
     
 
@@ -19,6 +18,10 @@ def main():
 
     print("\n" + "=" * 50)
     print("BLOCK 2 IS COMPLETE !! ")
+    print("=" * 50)
+
+    print("\n" + "=" * 50)
+    print("DASHBOARD IS COMPLETE !! ")
     print("=" * 50)
 
 
