@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T14:48:43.235606+00:00",
+  "generated_at": "2026-06-23T01:47:17.078048+00:00",
   "opportunities": [
     {
       "title": "new product launch",
@@ -111,14 +111,14 @@
     },
     {
       "title": "new market expansion",
-      "confidence": 0.85,
+      "confidence": 0.87,
       "impact": "High",
       "supporting_doc_ids": [
+        196,
         40,
         140,
         48,
         83,
-        84,
         120,
         158
       ],
@@ -131,18 +131,18 @@
           "excerpt": "Cyclical growth Really? https://news.ycombinator.com/item?id=45511368 https://archive.is/dvKkB \"AI companies say these kinds of large, reciprocal, and sometimes overlapping deals are what's needed to meet growing demand for their tech. But as more and more money gets invested in the space these"
         },
         {
+          "doc_id": 196,
+          "source": "newsapi",
+          "title": "NVIDIA’s CEO Says the Jobs Doomsayers Have It Backwards. Here’s Why",
+          "url": "https://247wallst.com/investing/2026/06/21/nvidias-ceo-says-the-jobs-doomsayers-have-it-backwards-heres-why/",
+          "excerpt": "market trends. Our top personal finance-related articles today. Your wallet will thank you later. Jensen Huang has spent the last two years saying AI will reshape the economy. On Bloomberg this morning, he sharpened… Jensen Huang is pushing back hard on the idea that AI is gutting software"
+        },
+        {
           "doc_id": 40,
           "source": "newsapi",
           "title": "Coherent Corp pours $650M into Texas photonics facility as NVIDIA deepens AI optics partnership",
           "url": "https://cryptobriefing.com/coherent-corp-sherman-photonics-expansion-nvidia-ai/",
           "excerpt": "of demand visibility that most semiconductor companies would envy. The $650 million expansion looks less like a gamble and more like fulfilling an order book. Coherent’s first-mover advantage in high-volume 6-inch InP production gives it a manufacturing moat that competitors can’t replicate"
-        },
-        {
-          "doc_id": 120,
-          "source": "hackernews",
-          "title": "OpenAI, Nvidia fuel $1T AI market with web of circular deals",
-          "url": "https://news.ycombinator.com/item?id=45521629",
-          "excerpt": "investing then the flow of deals stops & the bubble pops. There is nowhere else the institutional investors could park their money other than tech so I don't think the bubble is going to pop any time soon. But infinite growth is obviously a logical & physical impossibility so eventually there will"
         }
       ]
     }
@@ -187,11 +187,9 @@
     },
     {
       "title": "competitive threat",
-      "confidence": 0.64,
+      "confidence": 0.41,
       "impact": "Medium",
       "supporting_doc_ids": [
-        3,
-        5,
         11,
         140,
         93
@@ -222,7 +220,7 @@
     },
     {
       "title": "supply chain disruption",
-      "confidence": 0.66,
+      "confidence": 0.65,
       "impact": "Medium",
       "supporting_doc_ids": [
         34,
@@ -242,18 +240,18 @@
           "excerpt": "than practical, are how those incentives shift. What happens in the situation where there isn't a \"terminal\" point for a company? Coca-Cola has no reason to \"terminate\" itself, so why shouldn't it distribute profit excess to its operating requirements back to shareholders? The terminal point"
         },
         {
-          "doc_id": 36,
-          "source": "newsapi",
-          "title": "Bull and Foxconn advance European AI infrastructure with NVIDIA Vera Rubin NVL72 platform built in Europe",
-          "url": "https://www.globenewswire.com/news-release/2026/06/17/3313162/0/en/Bull-and-Foxconn-advance-European-AI-infrastructure-with-NVIDIA-Vera-Rubin-NVL72-platform-built-in-Europe.html",
-          "excerpt": "more resilient and efficient AI supply chain in Europe, with a competitive time to market, while enabling the emergence of scalable, high-performance infrastructure for the region’s most demanding AI workloads. Emmanuel Le Roux, CEO of Bull:“The partnership between Bull and Foxconn marked a turning"
-        },
-        {
           "doc_id": 40,
           "source": "newsapi",
           "title": "Coherent Corp pours $650M into Texas photonics facility as NVIDIA deepens AI optics partnership",
           "url": "https://cryptobriefing.com/coherent-corp-sherman-photonics-expansion-nvidia-ai/",
           "excerpt": "issues could create supply chain ripple effects that reach all the way to NVIDIA’s data center customers. The Sherman expansion will quadruple wafer production capacity and create roughly 1,000 jobs, backed by CHIPS Act funding and a $2 billion NVIDIA commitment Share Coherent Corp just dropped"
+        },
+        {
+          "doc_id": 36,
+          "source": "newsapi",
+          "title": "Bull and Foxconn advance European AI infrastructure with NVIDIA Vera Rubin NVL72 platform built in Europe",
+          "url": "https://www.globenewswire.com/news-release/2026/06/17/3313162/0/en/Bull-and-Foxconn-advance-European-AI-infrastructure-with-NVIDIA-Vera-Rubin-NVL72-platform-built-in-Europe.html",
+          "excerpt": "expertise to give customers greater control over how systems are deployed, secured and optimised - extending the “made in Europe” model from manufacturing to operations. Together, these developments reinforce the ambition behind the Bull–Foxconn partnership: anchoring a more resilient and efficient"
         }
       ]
     },
@@ -298,10 +296,11 @@
   "trends": [
     {
       "title": "industry shift",
-      "confidence": 0.84,
+      "confidence": 0.86,
       "impact": "High",
       "supporting_doc_ids": [
         34,
+        196,
         101,
         175,
         176,
@@ -445,15 +444,15 @@
     },
     {
       "title": "competitor partnership",
-      "confidence": 0.8,
+      "confidence": 0.81,
       "impact": "High",
       "supporting_doc_ids": [
         192,
         34,
+        195,
         36,
         41,
         106,
-        108,
         63
       ],
       "evidence": [
@@ -482,12 +481,13 @@
     },
     {
       "title": "competitor market share",
-      "confidence": 0.73,
+      "confidence": 0.74,
       "impact": "High",
       "supporting_doc_ids": [
         192,
         98,
         131,
+        195,
         101,
         77,
         84,
@@ -504,18 +504,18 @@
           "excerpt": "markets. The more appropriate comparison is with European automakers such as VW Group, Stellantis (Peugeot, Citroën, DS, Fiat, Chrysler, Dodge, Ram), Renault. And there too BYD is winning as well in mosy countries, but at least there's a comparison possible. The US couldn't compete anyway. The US"
         },
         {
+          "doc_id": 195,
+          "source": "newsapi",
+          "title": "Lest We Forget: Why Maximizing Shareholder Value Failed The First Time",
+          "url": "https://www.forbes.com/sites/stevedenning/2026/06/21/lest-we-forget-why-maximizing-shareholder-value-failed-the-first-time/",
+          "excerpt": "is already proving itself. Around 30% of public firms (and perhaps 70% of small private firms) are successfully prioritizing value for stakeholders, particularly customers. Firms led by Satya Nadella (Microsoft), Jensen Huang (Nvidia), and Reed Hastings (Netflix), show how this approach doesn’t"
+        },
+        {
           "doc_id": 92,
           "source": "hackernews",
           "title": "The impact of competition and DeepSeek on Nvidia",
           "url": "https://news.ycombinator.com/item?id=42822162",
           "excerpt": "profits. Anyway, I hope people here find it interesting to read, and I welcome any debate or discussion about my arguments. Good article. Maybe I missed it, but I see lots of analysis without a clear concluding opinion. Wanted to add a preface: Thank you for your time on this article, I appreciate"
-        },
-        {
-          "doc_id": 158,
-          "source": "hackernews",
-          "title": "Hugging Face raises $235M from investors including Salesforce and Nvidia",
-          "url": "https://news.ycombinator.com/item?id=37248895",
-          "excerpt": "a strong market - they end up increasing the price of products to cover the purchase of acquisitions and losses. This results in inflation and worsening wealth distribution. The article is quite clear on whose money it is - \"Google, Amazon, Nvidia, Intel, AMD, Qualcomm, IBM, Salesforce and Sound"
         }
       ]
     }
