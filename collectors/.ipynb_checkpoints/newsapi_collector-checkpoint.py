@@ -12,7 +12,7 @@ from config.settings import NOD
 from config.paths import RAW_DOCUMENTS_FILE
 load_dotenv()
 
-API_KEY ="5dae688742244daf8566a36bd0f063b2"                              #os.getenv("NEWS_API_KEY")    
+API_KEY ="5dae688742244daf8566a36bd0f063b2"                                 #os.getenv("NEWS_API_KEY")    
 QUERY = '"NVIDIA" AND (earnings OR AI OR chip OR datacenter OR stock OR GPU OR Jensen Huang)'                     
 OUTPUT_FILE = RAW_DOCUMENTS_FILE
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; ai-ceo-collector/1.0)"}
