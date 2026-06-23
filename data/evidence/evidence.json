@@ -1,148 +1,156 @@
 {
-  "generated_at": "2026-06-23T03:53:05.011295+00:00",
+  "generated_at": "2026-06-23T04:15:01.127482+00:00",
   "opportunities": [
     {
       "title": "new product launch",
-      "confidence": 0.9,
+      "confidence": 0.96,
       "impact": "High",
       "supporting_doc_ids": [
-        36,
-        41,
-        48,
-        176,
-        50,
-        121,
-        158
+        7,
+        113,
+        52,
+        21,
+        150,
+        182,
+        89,
+        26,
+        30
       ],
       "evidence": [
         {
-          "doc_id": 158,
+          "doc_id": 7,
+          "source": "newsapi",
+          "title": "After years in CEO Jensen Huang's orbit, these Nvidia veterans are building a startup community of their own",
+          "url": "https://www.businessinsider.com/ex-nvidia-leaders-launch-evergreen-to-back-ai-startups-2026-6#article",
+          "excerpt": "president of corporate marketing and developer programs. Now, he's writing his next chapter at EverGreen — a community of former Nvidia employees that advises and invests in AI startups, which formally launched in March. Estes previously ledNvidia's Inception startup program, which provides more than 40,000 companies with cloud credits and access to Nvidia technology. He saidEverGreen enables him"
+        },
+        {
+          "doc_id": 182,
           "source": "hackernews",
           "title": "Hugging Face raises $235M from investors including Salesforce and Nvidia",
           "url": "https://news.ycombinator.com/item?id=37248895",
-          "excerpt": "IBM, Salesforce and Sound Ventures\". For at least half of them, it might make sense to simply sponsor accelerating worldwide new AI product development because those new products will increase sales of their hardware and services; pitch in $20m together with others to support efforts like"
+          "excerpt": "IBM, Salesforce and Sound Ventures\". For at least half of them, it might make sense to simply sponsor accelerating worldwide new AI product development because those new products will increase sales of their hardware and services; pitch in $20m together with others to support efforts like Huggingface, while expecting that their tools will indirectly cause an extra $1b sales for you in the next"
         },
         {
-          "doc_id": 41,
+          "doc_id": 52,
           "source": "newsapi",
           "title": "Coherent Breaks Ground on Expanded Texas Facility, Scaling AI’s Optical Backbone",
           "url": "https://blogs.nvidia.com/blog/coherent-texas-ai-optical/",
-          "excerpt": "Before the groundbreaking, guests toured the existing fab and previewed the equipment that will populate the expanded building once it’s running. An NVIDIA rack stood on the factory floor, one of the six stops on the tour. The tour was followed by afireside chat with Huang and Anderson, where the"
-        },
-        {
-          "doc_id": 36,
-          "source": "newsapi",
-          "title": "Bull and Foxconn advance European AI infrastructure with NVIDIA Vera Rubin NVL72 platform built in Europe",
-          "url": "https://www.globenewswire.com/news-release/2026/06/17/3313162/0/en/Bull-and-Foxconn-advance-European-AI-infrastructure-with-NVIDIA-Vera-Rubin-NVL72-platform-built-in-Europe.html",
-          "excerpt": "solutions provider, today announce a first strategic milestone with the production in Europe of key components for commercialisation under the Bull brand. This announcement builds directly on the partnership unveiled on 1 June 2026, which combines Bull’s expertise in AI systems design and"
+          "excerpt": "event made that visible. Before the groundbreaking, guests toured the existing fab and previewed the equipment that will populate the expanded building once it’s running. An NVIDIA rack stood on the factory floor, one of the six stops on the tour. The tour was followed by afireside chat with Huang and Anderson, where the two CEOs discussed the partnership and what scaling domestic optical"
         }
       ]
     },
     {
       "title": "partnership announcement",
-      "confidence": 0.96,
+      "confidence": 0.98,
       "impact": "High",
       "supporting_doc_ids": [
         40,
-        41,
-        121,
-        29,
-        63
+        14,
+        177,
+        51,
+        52,
+        115,
+        92
       ],
       "evidence": [
         {
-          "doc_id": 63,
-          "source": "rss",
-          "title": "Seoul Purpose: How NVIDIA and South Korea Are Building the Future of AI",
-          "url": "https://blogs.nvidia.com/blog/korea-ecosystem-2026/",
-          "excerpt": "is in Seoul this week to meet the partners and builders behind that work. Monday, June 8, 10:00 a.m. PT “Thank you for your friendship. Thank you for your partnership. Go Korea!” NVIDIA founder and CEO Jensen Huang said, addressing a reception that brought together roughly 200 partners from every"
-        },
-        {
-          "doc_id": 40,
+          "doc_id": 92,
           "source": "newsapi",
-          "title": "Coherent Corp pours $650M into Texas photonics facility as NVIDIA deepens AI optics partnership",
-          "url": "https://cryptobriefing.com/coherent-corp-sherman-photonics-expansion-nvidia-ai/",
-          "excerpt": "while the final terms get hammered out. The two companies have been working together for over 20 years, according to statements made at the ceremony. On March 2, 2026, NVIDIA announced a $2 billion investment as part of a multi-year strategic agreement with Coherent, aimed specifically at advancing"
+          "title": "AI Infrastructure Boom Drives Demand for Semiconductor, Pharmaceutical Automation",
+          "url": "https://www.globenewswire.com/news-release/2026/06/15/3311787/0/en/AI-Infrastructure-Boom-Drives-Demand-for-Semiconductor-Pharmaceutical-Automation.html",
+          "excerpt": "risk or capital cost. That is precisely the model TechForce Robotics is building. Strategic Partnerships Drive TechForce into New Markets The most significant recent development for TechForce Robotics is its newly announced strategic alliance with JJ Enterprise. The partnership establishes a foundation for TechForce's expansion into AI infrastructure, advanced semiconductor packaging automation,"
         },
         {
-          "doc_id": 63,
-          "source": "rss",
-          "title": "Seoul Purpose: How NVIDIA and South Korea Are Building the Future of AI",
-          "url": "https://blogs.nvidia.com/blog/korea-ecosystem-2026/",
-          "excerpt": "200 partners from every part of the Korea AI ecosystem,corresponding to thefive‑layer cake. “I’m very happy to be here with all of you. This is Korea’s ecosystem,” Huang said. “This is the industrial base. This is the venture investors. This is the young entrepreneurs. We brought them all together."
+          "doc_id": 177,
+          "source": "hackernews",
+          "title": "Nvidia CEO Jensen Huang announces new AI chips: ‘We need bigger GPUs’",
+          "url": "https://news.ycombinator.com/item?id=39749646",
+          "excerpt": "2 customers. we have more now”. long pause. screen behind him covered with logos of all his customers. pause. pause. finally applause. ok on to the next tidbit. whole conference has been proceeding like this now. look if you invite cramer and the wall street crowd, you should throw in some dollar figures. like - who is paying for all this. how much. and why. talk is entirely about token"
+        },
+        {
+          "doc_id": 14,
+          "source": "newsapi",
+          "title": "Analyst Warns Intel Valuation ‘Doesn’t Make Sense.’ Suggests NVIDIA, AMD, Micron, and Broadcom as Alternatives.",
+          "url": "https://247wallst.com/investing/2026/06/19/analyst-warns-intel-valuation-doesnt-make-sense-suggests-nvidia-amd-micron-and-broadcom-as-alternatives/",
+          "excerpt": "one of the most explosive turnaround stories of 2026, with shares up…"
         }
       ]
     },
     {
       "title": "emerging technology adoption",
-      "confidence": 0.99,
+      "confidence": 0.97,
       "impact": "High",
       "supporting_doc_ids": [
-        129,
-        34,
-        36,
-        137,
-        108,
-        29
+        153,
+        72,
+        40,
+        45,
+        80,
+        146,
+        89
       ],
       "evidence": [
         {
-          "doc_id": 129,
+          "doc_id": 89,
           "source": "newsapi",
-          "title": "U.S. Export Controls Are The Gift That Keeps On Giving...To The CCP",
-          "url": "https://www.forbes.com/sites/johntamny/2026/06/16/us-export-controls-are-the-gift-that-keeps-on-givingto-the-ccp/",
-          "excerpt": "that Apple sells a fifth of its iPhones in China, it’s that a fast-rising Chinese technology sector is populated with individuals who think the world of the American technology behind products and services. This has long included Nvidia, and its chips that have been so instrumental in what has been"
+          "title": "Evolution Digital Technologies Launches Enhanced Shared Computing Infrastructure to Support Growing AI Demand",
+          "url": "https://www.globenewswire.com/news-release/2026/06/15/3311965/0/en/Evolution-Digital-Technologies-Launches-Enhanced-Shared-Computing-Infrastructure-to-Support-Growing-AI-Demand.html",
+          "excerpt": "Technologies seeks to help empower the individuals and organizations shaping the future of the intelligent economy. About Evolution Digital Technologies Founded in2020, Evolution Digital Technologies is a Colorado-registered technology company headquartered in Denver, USA. The company focuses on the development and optimization of shared computing infrastructure designed to support the increasing"
         },
         {
-          "doc_id": 36,
-          "source": "newsapi",
-          "title": "Bull and Foxconn advance European AI infrastructure with NVIDIA Vera Rubin NVL72 platform built in Europe",
-          "url": "https://www.globenewswire.com/news-release/2026/06/17/3313162/0/en/Bull-and-Foxconn-advance-European-AI-infrastructure-with-NVIDIA-Vera-Rubin-NVL72-platform-built-in-Europe.html",
-          "excerpt": "open, end-to-end and trusted approach, Bull designs, deploys and operates hardware, software and strategic services that unlock enterprise value, accelerate scientific research and advance society. Driven by world-class R&D, backed by 1,600 patents, manufacturing excellence and data sciences"
+          "doc_id": 153,
+          "source": "hackernews",
+          "title": "Arm co-founder: Sale to Nvidia would be a disaster",
+          "url": "https://news.ycombinator.com/item?id=24173539",
+          "excerpt": "Any other real non US company can benefit from it except Chinese companies ? There are all kinds of Euro-based electronics firms such as Alcatel or Phillips or Siemens. I’m aware of them but do they really develop any mainstream devices ? I might be wrong but aren’t those companies working in their niche eg cell towers etc. Isn’t that a way tooo narrow application of such a great tech ? None of"
         },
         {
-          "doc_id": 34,
+          "doc_id": 72,
           "source": "newsapi",
-          "title": "Chinese EV Makers Shift to Proprietary Chips, Reducing Reliance on Nvidia",
-          "url": "https://www.naturalnews.com/2026-06-17-chinese-ev-makers-shift-proprietary-chips-nvidia.html",
-          "excerpt": "The shift is driven by U.S. export controls and the rapid adoption of smart-driving features in Chinaâs mass market, according to analysts cited in company statements. Chinaâs broader pivot toward application-specific silicon, accelerated by geopolitical restrictions and economic necessity, is"
+          "title": "China’s biggest carmakers are designing their own driving chips, and Nvidia should be worried",
+          "url": "https://thenextweb.com/news/chinas-biggest-carmakers-are-designing-their-own-driving-chips-and-nvidia-should-be-worried/",
+          "excerpt": "events. Interested in business and how the narrative and perception of technology is shaped. Get the most important tech news in your inbox each week. The heart of tech A Tekpon Company Copyright © 2006—2026, Cogneve, INC. Made with <3 in Amsterdam."
         }
       ]
     },
     {
       "title": "new market expansion",
-      "confidence": 0.87,
+      "confidence": 0.9,
       "impact": "High",
       "supporting_doc_ids": [
+        129,
         196,
-        40,
-        140,
-        48,
-        83,
-        120,
-        158
+        165,
+        75,
+        177,
+        51,
+        182,
+        90,
+        91,
+        30
       ],
       "evidence": [
         {
-          "doc_id": 120,
+          "doc_id": 196,
+          "source": "hackernews",
+          "title": "Nvidia announces financial results for second quarter fiscal 2024",
+          "url": "https://news.ycombinator.com/item?id=37241487",
+          "excerpt": "a trillion dollar market cap. This is exciting: a trillion dollar market cap at the verge of a giant new market!"
+        },
+        {
+          "doc_id": 165,
           "source": "hackernews",
           "title": "OpenAI, Nvidia fuel $1T AI market with web of circular deals",
           "url": "https://news.ycombinator.com/item?id=45521629",
-          "excerpt": "Cyclical growth Really? https://news.ycombinator.com/item?id=45511368 https://archive.is/dvKkB \"AI companies say these kinds of large, reciprocal, and sometimes overlapping deals are what's needed to meet growing demand for their tech. But as more and more money gets invested in the space these"
+          "excerpt": "Cyclical growth Really? https://news.ycombinator.com/item?id=45511368 https://archive.is/dvKkB \"AI companies say these kinds of large, reciprocal, and sometimes overlapping deals are what's needed to meet growing demand for their tech. But as more and more money gets invested in the space these unorthodox business arrangements are also raising flags for industry analysts who are starting to"
         },
         {
-          "doc_id": 196,
+          "doc_id": 90,
           "source": "newsapi",
-          "title": "NVIDIA’s CEO Says the Jobs Doomsayers Have It Backwards. Here’s Why",
-          "url": "https://247wallst.com/investing/2026/06/21/nvidias-ceo-says-the-jobs-doomsayers-have-it-backwards-heres-why/",
-          "excerpt": "market trends. Our top personal finance-related articles today. Your wallet will thank you later. Jensen Huang has spent the last two years saying AI will reshape the economy. On Bloomberg this morning, he sharpened… Jensen Huang is pushing back hard on the idea that AI is gutting software"
-        },
-        {
-          "doc_id": 40,
-          "source": "newsapi",
-          "title": "Coherent Corp pours $650M into Texas photonics facility as NVIDIA deepens AI optics partnership",
-          "url": "https://cryptobriefing.com/coherent-corp-sherman-photonics-expansion-nvidia-ai/",
-          "excerpt": "of demand visibility that most semiconductor companies would envy. The $650 million expansion looks less like a gamble and more like fulfilling an order book. Coherent’s first-mover advantage in high-volume 6-inch InP production gives it a manufacturing moat that competitors can’t replicate"
+          "title": "Forget Buying Nvidia. This Overlooked ETF Beat the Nasdaq by Owning the AI Stocks You Can’t",
+          "url": "https://247wallst.com/investing/2026/06/15/forget-buying-nvidia-this-overlooked-etf-beat-the-nasdaq-by-owning-the-ai-stocks-you-cant/",
+          "excerpt": "infrastructure expansion in human history.” That growth is already priced in. NVDA carries a market cap near $5 trillion, ships zero H20 product to China after the policy changes, and has $119 billion in supply commitments riding on demand staying exactly where it is. Broadcom is the cleaner second-derivative play. AI semiconductor revenue hit $10.8 billion last quarter, up 143%, with Hock Tan"
         }
       ]
     }
@@ -150,145 +158,153 @@
   "risks": [
     {
       "title": "regulatory investigation",
-      "confidence": 0.7,
-      "impact": "High",
+      "confidence": 0.67,
+      "impact": "Medium",
       "supporting_doc_ids": [
-        192,
-        39,
-        106,
-        93,
-        150,
-        120,
-        29
+        40,
+        203,
+        174,
+        210,
+        180,
+        151,
+        92
       ],
       "evidence": [
         {
-          "doc_id": 93,
-          "source": "hackernews",
-          "title": "LibreCUDA – Launch CUDA code on Nvidia GPUs without the proprietary runtime",
-          "url": "https://news.ycombinator.com/item?id=41194024",
-          "excerpt": "Compliance*: Proficiency in ethical decision-making and compliance standards. I dont want to 'pollute' HN with my (its all real and well researched and informed) 'conspiracy' theories -- but I've been keeping receipts folks. If youre on HN, involved in Tech to any degree of seriousness, and dont"
+          "doc_id": 92,
+          "source": "newsapi",
+          "title": "AI Infrastructure Boom Drives Demand for Semiconductor, Pharmaceutical Automation",
+          "url": "https://www.globenewswire.com/news-release/2026/06/15/3311787/0/en/AI-Infrastructure-Boom-Drives-Demand-for-Semiconductor-Pharmaceutical-Automation.html",
+          "excerpt": "precision, repeatability and regulatory traceability in both manufacturing and research settings. Labor shortages, rising compliance requirements and the growing complexity of biopharmaceutical workflows are accelerating this adoption. The shift is both structural and urgent. Pharmaceutical manufacturers operating under Good Manufacturing Practice (“GMP”) regulations face enormous pressure to"
         },
         {
-          "doc_id": 29,
+          "doc_id": 40,
           "source": "newsapi",
           "title": "AI Infrastructure Boom Creates Skyrocketing Demand for Automation, Robotics Solutions Across Industries",
           "url": "https://www.globenewswire.com/news-release/2026/06/17/3313415/0/en/AI-Infrastructure-Boom-Creates-Skyrocketing-Demand-for-Automation-Robotics-Solutions-Across-Industries.html",
-          "excerpt": "precision, repeatability and regulatory traceability in both manufacturing and research environments. Labor shortages, tightening compliance demands and the rising complexity of biopharmaceutical workflows are speeding up this adoption. This shift is both structural and pressing. Pharmaceutical"
+          "excerpt": "and regulatory traceability in both manufacturing and research environments. Labor shortages, tightening compliance demands and the rising complexity of biopharmaceutical workflows are speeding up this adoption. This shift is both structural and pressing. Pharmaceutical manufacturers operating under Good Manufacturing Practice (“GMP”) rules face heavy pressure to keep every production step"
         },
         {
-          "doc_id": 192,
-          "source": "rss",
-          "title": "Electric air taxis are stuck in the courtroom",
-          "url": "https://www.theverge.com/column/950975/electric-air-taxis-lawsuits",
-          "excerpt": "approval, are growing increasingly nervous about the enormous costs required by these lawsuits. As companies race to dominate a brand-new,potentially multibillion-dollar aviation industry, these disputes over intellectual property, competition, and talent are triggering an aggressive wave of"
+          "doc_id": 92,
+          "source": "newsapi",
+          "title": "AI Infrastructure Boom Drives Demand for Semiconductor, Pharmaceutical Automation",
+          "url": "https://www.globenewswire.com/news-release/2026/06/15/3311787/0/en/AI-Infrastructure-Boom-Drives-Demand-for-Semiconductor-Pharmaceutical-Automation.html",
+          "excerpt": "regulations face enormous pressure to maintain consistency across every production step. Errors in drug manufacturing carry patient safety consequences. Automation in this environment is not about convenience; it is about the ability to operate at scale without compromising quality or compliance. As drug pipelines grow more complex and production volumes increase, the demand for validated,"
         }
       ]
     },
     {
       "title": "competitive threat",
-      "confidence": 0.41,
+      "confidence": 0.67,
       "impact": "Medium",
       "supporting_doc_ids": [
-        11,
-        140,
-        93
+        34,
+        138,
+        14,
+        15,
+        55,
+        54,
+        214,
+        91
       ],
       "evidence": [
         {
-          "doc_id": 93,
-          "source": "hackernews",
-          "title": "LibreCUDA – Launch CUDA code on Nvidia GPUs without the proprietary runtime",
-          "url": "https://news.ycombinator.com/item?id=41194024",
-          "excerpt": "risks to achieve his goals. >- Manipulative Tendencies: Reports suggest a pattern of manipulating situations to his advantage, raising ethical concerns. >- Polarizing Figure: Altman's actions elicit strong reactions, with some admiring his achievements and others criticizing his ethics. --- ###"
-        },
-        {
-          "doc_id": 93,
-          "source": "hackernews",
-          "title": "LibreCUDA – Launch CUDA code on Nvidia GPUs without the proprietary runtime",
-          "url": "https://news.ycombinator.com/item?id=41194024",
-          "excerpt": "for Improving Critical Infrastructure Cybersecurity.\" #### Behavioral Economics Description: Studies the effects of psychological, cognitive, and emotional factors on economic decisions. Application: Understands how Altman's personal motivations and cognitive biases might influence his strategic"
-        },
-        {
-          "doc_id": 11,
+          "doc_id": 14,
           "source": "newsapi",
-          "title": "Dario Amodei only has 1 direct report, his chief of staff—and everyone else reports to his sister: ‘It’s incredibly freeing’",
-          "url": "https://fortune.com/2026/06/18/anthropic-ceo-dario-amodei-one-direct-report-unconventional-management-structure-start-up-success/",
-          "excerpt": "around small, empowered teams capable of moving quickly and independently. “The teams needed to tackle [specific problems] should be small and authorized with the decision-making ability to move and act like Navy SEALs or the Army’s Delta Force,” he wrote. “This is trench warfare; it’s about"
+          "title": "Analyst Warns Intel Valuation ‘Doesn’t Make Sense.’ Suggests NVIDIA, AMD, Micron, and Broadcom as Alternatives.",
+          "url": "https://247wallst.com/investing/2026/06/19/analyst-warns-intel-valuation-doesnt-make-sense-suggests-nvidia-amd-micron-and-broadcom-as-alternatives/",
+          "excerpt": "an implied P/E north of 200. Analyst consensus is cautious, with 2 strong buy, 10 buy, 31 hold, 2 sell, and 3 strong sell ratings. Luria credited the strategic case. Intel’s roughly 10% surge is partly justified by real strategic value, including U.S.-based manufacturing and CPU scarcity, but he warned that “over especially the last decade, the execution from Intel has been very uneven.” He"
+        },
+        {
+          "doc_id": 34,
+          "source": "newsapi",
+          "title": "Jensen Huang on his relationship with Trump: ‘calls me in the middle of the night’",
+          "url": "https://fortune.com/2026/06/17/jensen-huang-trump-nvidia-ai-midnight-calls-relationship/",
+          "excerpt": "faster economic growth and more scientific breakthroughs. But as the head of a computer chip company now developing AI systems, he and others are confronting a public increasingly concerned about the potential harm the technology might bring. Huang has felt obligated to respond to critics who warn of job losses and threats to humanity itself. “We need to create new social norms,” Huang said in an"
+        },
+        {
+          "doc_id": 54,
+          "source": "newsapi",
+          "title": "Nvidia's Jensen Huang says society needs 'new social norms' in the age of AI",
+          "url": "https://japantoday.com/category/tech/ap-exclusive-nvidia%27s-jensen-huang-says-society-needs-%27new-social-norms%27-in-the-age-of-ai",
+          "excerpt": "been optimistic about the technology’s potential to rapidly change society, creating faster economic growth and more scientific breakthroughs. But as the head of a computer chip company now developing AI systems, Huang has felt obligated to respond to critics who warn of job losses and threats to humanity itself. “We need to create new social norms,” Huang said in an interview. “I would advocate"
         }
       ]
     },
     {
       "title": "supply chain disruption",
-      "confidence": 0.65,
+      "confidence": 0.66,
       "impact": "Medium",
       "supporting_doc_ids": [
-        34,
-        36,
+        132,
+        6,
+        134,
         40,
-        115,
-        150,
-        87,
-        89
+        14,
+        207,
+        177,
+        210,
+        184,
+        191
       ],
       "evidence": [
         {
-          "doc_id": 87,
+          "doc_id": 210,
           "source": "hackernews",
-          "title": "FTC sues to block Nvidia-Arm merger",
-          "url": "https://news.ycombinator.com/item?id=29422071",
-          "excerpt": "than practical, are how those incentives shift. What happens in the situation where there isn't a \"terminal\" point for a company? Coca-Cola has no reason to \"terminate\" itself, so why shouldn't it distribute profit excess to its operating requirements back to shareholders? The terminal point"
+          "title": "Nvidia’s hot adapter for the GeForce RTX 4090 with a built-in breaking point",
+          "url": "https://news.ycombinator.com/item?id=33373729",
+          "excerpt": "problem and hints at a fundamental rot within the company."
         },
         {
-          "doc_id": 40,
-          "source": "newsapi",
-          "title": "Coherent Corp pours $650M into Texas photonics facility as NVIDIA deepens AI optics partnership",
-          "url": "https://cryptobriefing.com/coherent-corp-sherman-photonics-expansion-nvidia-ai/",
-          "excerpt": "issues could create supply chain ripple effects that reach all the way to NVIDIA’s data center customers. The Sherman expansion will quadruple wafer production capacity and create roughly 1,000 jobs, backed by CHIPS Act funding and a $2 billion NVIDIA commitment Share Coherent Corp just dropped"
+          "doc_id": 191,
+          "source": "hackernews",
+          "title": "Rivals Intel and AMD Team Up on PC Chips to Battle Nvidia",
+          "url": "https://news.ycombinator.com/item?id=15635249",
+          "excerpt": "It is possible that AMD would go under without this deal. Leading AMD must be emotionally exhausting. Can you image leading a company that for so long is fighting for survival? This is basically every startup. Many of the quiet successes take decades. This is most businesses in general where healthy and creatively destructive competition takes place."
         },
         {
-          "doc_id": 36,
-          "source": "newsapi",
-          "title": "Bull and Foxconn advance European AI infrastructure with NVIDIA Vera Rubin NVL72 platform built in Europe",
-          "url": "https://www.globenewswire.com/news-release/2026/06/17/3313162/0/en/Bull-and-Foxconn-advance-European-AI-infrastructure-with-NVIDIA-Vera-Rubin-NVL72-platform-built-in-Europe.html",
-          "excerpt": "expertise to give customers greater control over how systems are deployed, secured and optimised - extending the “made in Europe” model from manufacturing to operations. Together, these developments reinforce the ambition behind the Bull–Foxconn partnership: anchoring a more resilient and efficient"
+          "doc_id": 177,
+          "source": "hackernews",
+          "title": "Nvidia CEO Jensen Huang announces new AI chips: ‘We need bigger GPUs’",
+          "url": "https://news.ycombinator.com/item?id=39749646",
+          "excerpt": "Stock unchanged in afterhours. A lot of people were hoping for a big pop on some big development. not only that, it lost steam during the day, maybe it was overheated too much and no more news can pump it up any further. I imagine it’ll pop in the morning guy is messing it up bigtime and in real-time as well. sheesh. none of his jokes are landing. “we had 2 customers. we have more now”. long"
         }
       ]
     },
     {
       "title": "negative public sentiment",
-      "confidence": 0.66,
+      "confidence": 0.67,
       "impact": "Medium",
       "supporting_doc_ids": [
-        65,
-        43,
-        146,
-        147,
-        184,
-        25,
-        93
+        34,
+        170,
+        171,
+        210,
+        54,
+        24,
+        58
       ],
       "evidence": [
         {
-          "doc_id": 146,
+          "doc_id": 170,
           "source": "hackernews",
           "title": "Nvidia to join Dow Jones Industrial Average, replacing Intel",
           "url": "https://news.ycombinator.com/item?id=42022282",
-          "excerpt": "operate without profits — or even incurring losses — in order to serve the public good, promote an ideology, engage in activism, spread misinformation, etc. spread misinformation? which major media operations are operating at a loss how for the public good (discounting state run) and how? spread"
+          "excerpt": "misinformation? which major media operations are operating at a loss how for the public good (discounting state run) and how? spread misinformation? Yes, several state-run and private media organizations operate without profits or at a loss in order to spread misinformation. which major media operations are operating at a loss how for the public good (discounting state run) and how? Sorry, I was"
         },
         {
-          "doc_id": 184,
-          "source": "rss",
-          "title": "Patreon CEO Jack Conte on supporting artists in the AI slop era",
-          "url": "https://www.theverge.com/podcast/952607/patreon-ceo-jack-conte",
-          "excerpt": "awesome. But the systems and subsystems that we’re using layered on top of the internet, like social media, those systems are a bad implementation of those principles that have had a really harmful effect on humans at a scale that is hard to even comprehend. Something needs to change. When we look"
-        },
-        {
-          "doc_id": 146,
+          "doc_id": 170,
           "source": "hackernews",
           "title": "Nvidia to join Dow Jones Industrial Average, replacing Intel",
           "url": "https://news.ycombinator.com/item?id=42022282",
-          "excerpt": "media or the blogosphere. Though there are some instances of major state-run companies, even on TV and on the radio, that operate in a similar fashion. Also, I am surely not equating the spread of misinformation with serving the public good — these are just distinct objectives that may be sought by"
+          "excerpt": "losing ~10% of its subscribers due to recent editorial decisions.[4][5] There are numerous propaganda institutions (usually labeled as \"think tanks\") promulgating various ideologies or interests, with the Atlas Network being amongst the largest and most influential: ________________________________ Notes: 1. See for example the WSJ's coverage: \"Chicago Public Media to Acquire Chicago Sun-Times,"
+        },
+        {
+          "doc_id": 170,
+          "source": "hackernews",
+          "title": "Nvidia to join Dow Jones Industrial Average, replacing Intel",
+          "url": "https://news.ycombinator.com/item?id=42022282",
+          "excerpt": "closes\" Of newspapers operating at a loss or as philanthropies, there are the Baltimore Banner ,[2] The Guardian ,[3] and ProPublica,[4] which all operate as non-profits, relying on a mix of advertising, subscriptions, and philanthropy. The privately-held, for-profit Washington Post is a for-profit paper that's operated at a loss for years, and this before losing ~10% of its subscribers due to"
         }
       ]
     }
@@ -296,109 +312,115 @@
   "trends": [
     {
       "title": "industry shift",
-      "confidence": 0.86,
+      "confidence": 0.82,
       "impact": "High",
       "supporting_doc_ids": [
-        34,
-        196,
-        101,
-        175,
-        176,
-        29
+        165,
+        6,
+        40,
+        11,
+        45,
+        14,
+        210,
+        92
       ],
       "evidence": [
         {
-          "doc_id": 29,
+          "doc_id": 45,
           "source": "newsapi",
-          "title": "AI Infrastructure Boom Creates Skyrocketing Demand for Automation, Robotics Solutions Across Industries",
-          "url": "https://www.globenewswire.com/news-release/2026/06/17/3313415/0/en/AI-Infrastructure-Boom-Creates-Skyrocketing-Demand-for-Automation-Robotics-Solutions-Across-Industries.html",
-          "excerpt": "rather than a temporary one. Developed economies are dealing with aging workforces and limited pipelines of skilled labor. Operating costs in labor-intensive industries keep climbing. Regulatory demands across healthcare, pharmaceuticals and advanced manufacturing are becoming tougher, not easier."
+          "title": "Chinese EV Makers Shift to Proprietary Chips, Reducing Reliance on Nvidia",
+          "url": "https://www.naturalnews.com/2026-06-17-chinese-ev-makers-shift-proprietary-chips-nvidia.html",
+          "excerpt": "The shift is driven by U.S. export controls and the rapid adoption of smart-driving features in Chinaâs mass market, according to analysts cited in company statements. Chinaâs broader pivot toward application-specific silicon, accelerated by geopolitical restrictions and economic necessity, is reshaping the competitive landscape of the global automotive semiconductor industry.Details of the"
         },
         {
-          "doc_id": 176,
+          "doc_id": 11,
           "source": "newsapi",
           "title": "Semiconductor Stocks Fall After Microsoft Ends Oracle Cloud Deal Talks",
           "url": "https://www.naturalnews.com/2026-06-20-semiconductor-stocks-fall-microsoft-ends-oracle-deal.html",
-          "excerpt": "industry remains at the center of the global economy. Maury Klein, in his book âThe Change Makers,â notes that the invention of the integrated circuit by Robert Noyce in 1959 gave rise to a major new industry and transformed business practices [5]. Today, companies like Nvidia continue to"
+          "excerpt": "industry remains at the center of the global economy. Maury Klein, in his book âThe Change Makers,â notes that the invention of the integrated circuit by Robert Noyce in 1959 gave rise to a major new industry and transformed business practices [5]. Today, companies like Nvidia continue to dominate the AI chip market. Nvidiaâs Blackwell chips posted record sales in early 2025, yet the stock"
         },
         {
-          "doc_id": 176,
+          "doc_id": 6,
           "source": "newsapi",
-          "title": "Semiconductor Stocks Fall After Microsoft Ends Oracle Cloud Deal Talks",
-          "url": "https://www.naturalnews.com/2026-06-20-semiconductor-stocks-fall-microsoft-ends-oracle-deal.html",
-          "excerpt": "The semiconductor industry remains at the center of the global economy. Maury Klein, in his book âThe Change Makers,â notes that the invention of the integrated circuit by Robert Noyce in 1959 gave rise to a major new industry and transformed business practices [5]. Today, companies like Nvidia"
+          "title": "NVIDIA’s CEO Says the Jobs Doomsayers Have It Backwards. Here’s Why",
+          "url": "https://247wallst.com/investing/2026/06/21/nvidias-ceo-says-the-jobs-doomsayers-have-it-backwards-heres-why/",
+          "excerpt": "deploying generative tools, even where total payrolls are growing. Huang’s task-not-profession framing is defensible, but the transition cost lands on specific workers, not averages. On the Dwarkesh Podcast, researchers noted “there might be some kind of displacement” and a transition required to find work that fits, even in scenarios where wages stay high. Investors get the cleanest read on his"
         }
       ]
     },
     {
       "title": "customer behavior change",
-      "confidence": 0.82,
+      "confidence": 0.84,
       "impact": "High",
       "supporting_doc_ids": [
-        48,
-        147,
-        84,
-        153,
-        154,
-        159
+        129,
+        3,
+        99,
+        170,
+        171,
+        209,
+        177,
+        150,
+        183
       ],
       "evidence": [
         {
-          "doc_id": 147,
+          "doc_id": 170,
           "source": "hackernews",
-          "title": "Nvidia adds telemetry to latest drivers",
-          "url": "https://news.ycombinator.com/item?id=12884762",
-          "excerpt": "goes against the interests of the customer. If not at the beginning, when they inevitably decide to monetize that data. It's not about missing the privacy discussion it's about the public at large not giving a flying duck about it, regardless of what you think. Pick a random person on the street"
+          "title": "Nvidia to join Dow Jones Industrial Average, replacing Intel",
+          "url": "https://news.ycombinator.com/item?id=42022282",
+          "excerpt": "Post cancellations hit 250,000 – 10% of subscribers\" (2024-10-29) That’s just a different set of customers (“patrons”)."
         },
         {
-          "doc_id": 159,
-          "source": "hackernews",
-          "title": "Nvidia PersonaPlex 7B on Apple Silicon: Full-Duplex Speech-to-Speech in Swift",
-          "url": "https://news.ycombinator.com/item?id=47258801",
-          "excerpt": "The cost to do so is practically zero. I'm not sure why anyone is surprised at all by this outcome. Do you suggest there is a difference when you talk to a human employee? Telling a customer the plain truth isn't really what your employer wants, and might get you fired. It's not surprising that"
+          "doc_id": 3,
+          "source": "newsapi",
+          "title": "Lest We Forget: Why Maximizing Shareholder Value Failed The First Time",
+          "url": "https://www.forbes.com/sites/stevedenning/2026/06/21/lest-we-forget-why-maximizing-shareholder-value-failed-the-first-time/",
+          "excerpt": "better path is already proving itself. Around 30% of public firms (and perhaps 70% of small private firms) are successfully prioritizing value for stakeholders, particularly customers. Firms led by Satya Nadella (Microsoft), Jensen Huang (Nvidia), and Reed Hastings (Netflix), show how this approach doesn’t just feel better: it delivers superior TSR and ROIC. These firms prioritized customer value"
         },
         {
-          "doc_id": 84,
+          "doc_id": 150,
           "source": "hackernews",
-          "title": "Apple is fighting for TSMC capacity as Nvidia takes center stage",
-          "url": "https://news.ycombinator.com/item?id=46633488",
-          "excerpt": "customer makes little chips (when your defect rate is higher) and bigger chips (when your defect rate is lower). Of course you don't try to synthesize this profile out of a bajillion tiny customers. so if you win an ebay auction, did you shove \"lesser people\" out of the way? Hey Apple, how does it"
+          "title": "SoftBank's Sale of Arm to Nvidia Collapses, Arm to IPO",
+          "url": "https://news.ycombinator.com/item?id=30254201",
+          "excerpt": "from their stockholders will cause rent seeking behavior? Even if they sold to nvidia frankly. A: \"we grew to billions of dollars without ripping off our customers\" B: \"it is a failure as a business. If you employed underhand tactics you could be even bigger!\" This is the phylosophy that gives us DRM on cars, 100 page lisence agreement with TVs, and fraud on wallstreet. but let's be honest, it is"
         }
       ]
     },
     {
       "title": "technology adoption trend",
-      "confidence": 0.89,
+      "confidence": 0.86,
       "impact": "High",
       "supporting_doc_ids": [
-        34,
-        137,
-        139,
-        176,
-        120,
-        59
+        165,
+        38,
+        40,
+        11,
+        45,
+        146,
+        187
       ],
       "evidence": [
         {
-          "doc_id": 34,
-          "source": "newsapi",
-          "title": "Chinese EV Makers Shift to Proprietary Chips, Reducing Reliance on Nvidia",
-          "url": "https://www.naturalnews.com/2026-06-17-chinese-ev-makers-shift-proprietary-chips-nvidia.html",
-          "excerpt": "The shift is driven by U.S. export controls and the rapid adoption of smart-driving features in Chinaâs mass market, according to analysts cited in company statements. Chinaâs broader pivot toward application-specific silicon, accelerated by geopolitical restrictions and economic necessity, is"
-        },
-        {
-          "doc_id": 120,
+          "doc_id": 146,
           "source": "hackernews",
-          "title": "OpenAI, Nvidia fuel $1T AI market with web of circular deals",
-          "url": "https://news.ycombinator.com/item?id=45521629",
-          "excerpt": "Cyclical growth Really? https://news.ycombinator.com/item?id=45511368 https://archive.is/dvKkB \"AI companies say these kinds of large, reciprocal, and sometimes overlapping deals are what's needed to meet growing demand for their tech. But as more and more money gets invested in the space these"
+          "title": "Alibaba Cloud says it cut Nvidia AI GPU use by 82% with new pooling system",
+          "url": "https://news.ycombinator.com/item?id=45643163",
+          "excerpt": "banning the export of it quasi-open models. We may very well end up in a situation like the old PAL vs NTSC video standard where the PAL(EU/Asia/AFrica) and NTSC(America's/Japan) gradually converged with the adoption of digital formats. Instead here would be a divergence based on geopolitical considerations. positive take: a bifurcated tech tree might give us (humanity) a better chance of faster"
         },
         {
-          "doc_id": 34,
+          "doc_id": 45,
           "source": "newsapi",
           "title": "Chinese EV Makers Shift to Proprietary Chips, Reducing Reliance on Nvidia",
           "url": "https://www.naturalnews.com/2026-06-17-chinese-ev-makers-shift-proprietary-chips-nvidia.html",
-          "excerpt": "ways, according to the BBC. [8]ReferencesNaturalNews.com. \"80% of New Leading Research in Advanced Technological Fields Comes from China.\" September 20, 2023.Trends-Journal-2024-05-19.Mike Adams interview with Jeffrey Prather. April 22, 2025.CarNewsChina. \"BYD Released Xuanji A3 ADAS Chip as It"
+          "excerpt": "The shift is driven by U.S. export controls and the rapid adoption of smart-driving features in Chinaâs mass market, according to analysts cited in company statements. Chinaâs broader pivot toward application-specific silicon, accelerated by geopolitical restrictions and economic necessity, is reshaping the competitive landscape of the global automotive semiconductor industry.Details of the"
+        },
+        {
+          "doc_id": 187,
+          "source": "hackernews",
+          "title": "Cryptocurrencies add nothing useful to society, says chip-maker Nvidia",
+          "url": "https://news.ycombinator.com/item?id=35317464",
+          "excerpt": "\"society\" as if the human experience is somehow uniform across the globe. Oh please Hilarious, I don't remember them saying this BEFORE their crypto profits evaporated. I will say, it seemed like right about the time the crypto markets collapsed again was right when AI application really started taking off and creating great demand. So I think the demand has remained roughly consistent. The big"
         }
       ]
     }
@@ -406,39 +428,40 @@
   "competitor_activity": [
     {
       "title": "competitor product launch",
-      "confidence": 0.8,
+      "confidence": 0.77,
       "impact": "High",
       "supporting_doc_ids": [
-        192,
-        34,
-        5,
-        167,
-        10,
-        13,
-        48,
-        158
+        129,
+        135,
+        16,
+        213,
+        214,
+        55,
+        182,
+        24,
+        62
       ],
       "evidence": [
         {
-          "doc_id": 167,
+          "doc_id": 213,
           "source": "hackernews",
-          "title": "Rivals Intel and AMD Team Up on PC Chips to Battle Nvidia",
-          "url": "https://news.ycombinator.com/item?id=15635249",
-          "excerpt": "is basically every startup. Many of the quiet successes take decades. This is most businesses in general where healthy and creatively destructive competition takes place."
+          "title": "Microsoft builds MacBook Pro rival with NVIDIA-powered Surface Laptop Ultra",
+          "url": "https://news.ycombinator.com/item?id=48355720",
+          "excerpt": "competitor also in the Snapdragon X. however the OS is ruined beyond recognition, so no matter what they do, the combo will be bad."
         },
         {
-          "doc_id": 158,
+          "doc_id": 182,
           "source": "hackernews",
           "title": "Hugging Face raises $235M from investors including Salesforce and Nvidia",
           "url": "https://news.ycombinator.com/item?id=37248895",
-          "excerpt": "IBM, Salesforce and Sound Ventures\". For at least half of them, it might make sense to simply sponsor accelerating worldwide new AI product development because those new products will increase sales of their hardware and services; pitch in $20m together with others to support efforts like"
+          "excerpt": "IBM, Salesforce and Sound Ventures\". For at least half of them, it might make sense to simply sponsor accelerating worldwide new AI product development because those new products will increase sales of their hardware and services; pitch in $20m together with others to support efforts like Huggingface, while expecting that their tools will indirectly cause an extra $1b sales for you in the next"
         },
         {
-          "doc_id": 192,
-          "source": "rss",
-          "title": "Electric air taxis are stuck in the courtroom",
-          "url": "https://www.theverge.com/column/950975/electric-air-taxis-lawsuits",
-          "excerpt": "approval, are growing increasingly nervous about the enormous costs required by these lawsuits. As companies race to dominate a brand-new,potentially multibillion-dollar aviation industry, these disputes over intellectual property, competition, and talent are triggering an aggressive wave of"
+          "doc_id": 135,
+          "source": "hackernews",
+          "title": "Nvidia to buy assets from Groq for $20B cash",
+          "url": "https://news.ycombinator.com/item?id=46379183",
+          "excerpt": "AI that Nvidia has invested in can carry on happy they have one less competitor. This is how business works in the 21st century - once one company has a dominant position and a massive warchest they can just buy any business that has any potential of disrupting their revenue. It's literally the thesis Peter Thiel sets out in Zero To One. It works really well for that one business . From the press"
         }
       ]
     },
@@ -447,75 +470,72 @@
       "confidence": 0.81,
       "impact": "High",
       "supporting_doc_ids": [
-        192,
-        34,
-        195,
-        36,
-        41,
-        106,
-        63
+        135,
+        40,
+        45,
+        16,
+        151,
+        92
       ],
       "evidence": [
         {
-          "doc_id": 106,
+          "doc_id": 92,
+          "source": "newsapi",
+          "title": "AI Infrastructure Boom Drives Demand for Semiconductor, Pharmaceutical Automation",
+          "url": "https://www.globenewswire.com/news-release/2026/06/15/3311787/0/en/AI-Infrastructure-Boom-Drives-Demand-for-Semiconductor-Pharmaceutical-Automation.html",
+          "excerpt": "risk or capital cost. That is precisely the model TechForce Robotics is building. Strategic Partnerships Drive TechForce into New Markets The most significant recent development for TechForce Robotics is its newly announced strategic alliance with JJ Enterprise. The partnership establishes a foundation for TechForce's expansion into AI infrastructure, advanced semiconductor packaging automation,"
+        },
+        {
+          "doc_id": 135,
+          "source": "hackernews",
+          "title": "Nvidia to buy assets from Groq for $20B cash",
+          "url": "https://news.ycombinator.com/item?id=46379183",
+          "excerpt": "AI that Nvidia has invested in can carry on happy they have one less competitor. This is how business works in the 21st century - once one company has a dominant position and a massive warchest they can just buy any business that has any potential of disrupting their revenue. It's literally the thesis Peter Thiel sets out in Zero To One. It works really well for that one business . From the press"
+        },
+        {
+          "doc_id": 151,
           "source": "hackernews",
           "title": "Nvidia Warp: A Python framework for high performance GPU simulation and graphics",
           "url": "https://news.ycombinator.com/item?id=40680737",
-          "excerpt": "developing competing products or technologies or assist a third party in such activities.\" vs \"California’s public policy provides that every contract that restrains anyone from engaging in a lawful profession, trade, or business of any kind is, to that extent, void, except under limited statutory"
-        },
-        {
-          "doc_id": 63,
-          "source": "rss",
-          "title": "Seoul Purpose: How NVIDIA and South Korea Are Building the Future of AI",
-          "url": "https://blogs.nvidia.com/blog/korea-ecosystem-2026/",
-          "excerpt": "200 partners from every part of the Korea AI ecosystem,corresponding to thefive‑layer cake. “I’m very happy to be here with all of you. This is Korea’s ecosystem,” Huang said. “This is the industrial base. This is the venture investors. This is the young entrepreneurs. We brought them all together."
-        },
-        {
-          "doc_id": 36,
-          "source": "newsapi",
-          "title": "Bull and Foxconn advance European AI infrastructure with NVIDIA Vera Rubin NVL72 platform built in Europe",
-          "url": "https://www.globenewswire.com/news-release/2026/06/17/3313162/0/en/Bull-and-Foxconn-advance-European-AI-infrastructure-with-NVIDIA-Vera-Rubin-NVL72-platform-built-in-Europe.html",
-          "excerpt": "expertise to give customers greater control over how systems are deployed, secured and optimised - extending the “made in Europe” model from manufacturing to operations. Together, these developments reinforce the ambition behind the Bull–Foxconn partnership: anchoring a more resilient and efficient"
+          "excerpt": "You may not use the Software for the purpose of developing competing products or technologies or assist a third party in such activities.\" vs \"California’s public policy provides that every contract that restrains anyone from engaging in a lawful profession, trade, or business of any kind is, to that extent, void, except under limited statutory exceptions.\""
         }
       ]
     },
     {
       "title": "competitor market share",
-      "confidence": 0.74,
+      "confidence": 0.79,
       "impact": "High",
       "supporting_doc_ids": [
-        192,
-        98,
-        131,
-        195,
-        101,
-        77,
-        84,
-        150,
-        92,
-        158
+        129,
+        66,
+        135,
+        39,
+        204,
+        16,
+        182,
+        91
       ],
       "evidence": [
         {
-          "doc_id": 101,
+          "doc_id": 204,
           "source": "hackernews",
-          "title": "Alibaba Cloud says it cut Nvidia AI GPU use by 82% with new pooling system",
-          "url": "https://news.ycombinator.com/item?id=45643163",
-          "excerpt": "markets. The more appropriate comparison is with European automakers such as VW Group, Stellantis (Peugeot, Citroën, DS, Fiat, Chrysler, Dodge, Ram), Renault. And there too BYD is winning as well in mosy countries, but at least there's a comparison possible. The US couldn't compete anyway. The US"
+          "title": "Nvidia takes $1B stake in Nokia",
+          "url": "https://news.ycombinator.com/item?id=45734486",
+          "excerpt": "the status quo. For example, if they are only two companies, say with 1T and 4T market cap. If one invests 5M into a total market ETF, 1M is allocated to company A and 4M to company B. But since company B is 4x bigger than company A, the upward price pressure is the same for both companies. The money you buy stock with l goes to the former/selling shareholder, which is most often not the company."
         },
         {
-          "doc_id": 195,
-          "source": "newsapi",
-          "title": "Lest We Forget: Why Maximizing Shareholder Value Failed The First Time",
-          "url": "https://www.forbes.com/sites/stevedenning/2026/06/21/lest-we-forget-why-maximizing-shareholder-value-failed-the-first-time/",
-          "excerpt": "is already proving itself. Around 30% of public firms (and perhaps 70% of small private firms) are successfully prioritizing value for stakeholders, particularly customers. Firms led by Satya Nadella (Microsoft), Jensen Huang (Nvidia), and Reed Hastings (Netflix), show how this approach doesn’t"
+          "doc_id": 182,
+          "source": "hackernews",
+          "title": "Hugging Face raises $235M from investors including Salesforce and Nvidia",
+          "url": "https://news.ycombinator.com/item?id=37248895",
+          "excerpt": "The companies that invest have products (or have other investments with products) that have a strong market - they end up increasing the price of products to cover the purchase of acquisitions and losses. This results in inflation and worsening wealth distribution. The article is quite clear on whose money it is - \"Google, Amazon, Nvidia, Intel, AMD, Qualcomm, IBM, Salesforce and Sound Ventures\"."
         },
         {
-          "doc_id": 92,
+          "doc_id": 135,
           "source": "hackernews",
-          "title": "The impact of competition and DeepSeek on Nvidia",
-          "url": "https://news.ycombinator.com/item?id=42822162",
-          "excerpt": "profits. Anyway, I hope people here find it interesting to read, and I welcome any debate or discussion about my arguments. Good article. Maybe I missed it, but I see lots of analysis without a clear concluding opinion. Wanted to add a preface: Thank you for your time on this article, I appreciate"
+          "title": "Nvidia to buy assets from Groq for $20B cash",
+          "url": "https://news.ycombinator.com/item?id=46379183",
+          "excerpt": "AI that Nvidia has invested in can carry on happy they have one less competitor. This is how business works in the 21st century - once one company has a dominant position and a massive warchest they can just buy any business that has any potential of disrupting their revenue. It's literally the thesis Peter Thiel sets out in Zero To One. It works really well for that one business . From the press"
         }
       ]
     }

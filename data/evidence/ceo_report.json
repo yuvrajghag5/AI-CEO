@@ -1,135 +1,149 @@
 {
   "company": "NVIDIA",
-  "generated_at": "2026-06-23T03:54:51.968541+00:00",
+  "generated_at": "2026-06-23T04:17:03.817189+00:00",
   "user_question": "If you were the CEO of NVIDIA today, what would you do next and why?",
   "strategic_context_used": true,
   "retrieved_context_used": true,
-  "executive_summary": "NVIDIA, a leading technology company in artificial intelligence (AI) and graphics processing units (GPUs), is currently navigating a complex business landscape. The company is experiencing opportunities from new product launches, partnerships, and emerging technology adoption, while facing risks from regulatory investigations, competitive threats, and supply chain disruptions. In addition, the industry is shifting towards automation and robotics solutions, and customer behavior is changing with the increasing adoption of AI. Based on this analysis, the following strategic recommendations and CEO action plan items are proposed.",
+  "executive_summary": "NVIDIA, a leading technology company in artificial intelligence (AI) and graphics processing units (GPUs), is currently navigating several significant opportunities and risks in the rapidly evolving tech landscape. The company is experiencing high demand for AI infrastructure and chips due to the boom in this sector, as well as the increasing adoption of AI in various industries. However, NVIDIA also faces regulatory investigations and competitive threats that could impact its growth. In response, the CEO should prioritize strategic partnerships, invest in research and development, and expand into new markets.",
   "key_opportunities": [
     {
-      "opportunity": "Expanding AI Product Development with Strategic Partnerships (S3, S4)",
-      "business_impact": "Partnering with Coherent Corp to expand its AI optics capabilities and deepen the partnership can accelerate NVIDIA's product development and increase sales, as well as provide a competitive edge in the market.",
+      "opportunity": "Strategic Partnerships (S3, S5, S25)",
+      "business_impact": "NVIDIA can leverage partnerships to enter new markets and expand its reach, as seen with TechForce Robotics and Evolution Digital Technologies. These collaborations can also provide access to new technologies and resources.",
       "supporting_evidence": [
         "S3",
-        "S4"
-      ]
-    },
-    {
-      "opportunity": "Capitalizing on the Shift to Proprietary Chips in the EV Market (S21, S25)",
-      "business_impact": "NVIDIA can explore opportunities to provide proprietary chips and software solutions to Chinese EV makers, such as BYD, to reduce their reliance on competitors and tap into the growing market.",
-      "supporting_evidence": [
-        "S21",
+        "S5",
         "S25"
       ]
     },
     {
-      "opportunity": "Exploring New Markets in Europe (S7, S22)",
-      "business_impact": "Expanding into European markets through partnerships with Bull and Foxconn can help NVIDIA tap into new markets and increase its global presence, as well as provide a competitive edge in the region.",
+      "opportunity": "New Product Development (S1, S2)",
+      "business_impact": "NVIDIA can capitalize on the high demand for new AI products by investing in research and development, as indicated by the news of EverGreen, a community of former NVIDIA employees that advises and invests in AI startups. This can lead to innovative solutions and increased sales.",
+      "supporting_evidence": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "opportunity": "Expansion into New Markets (S7, S8)",
+      "business_impact": "NVIDIA's entry into the Dow Jones Industrial Average and the trillion-dollar AI market presents an opportunity to expand its customer base and increase revenue. Additionally, the cyclical growth in the AI sector can further boost the company's growth.",
       "supporting_evidence": [
         "S7",
-        "S22"
+        "S8"
       ]
     }
   ],
   "key_risks": [
     {
-      "risk": "Regulatory Investigations and Compliance Concerns (S9, S13)",
-      "why_it_matters": "Regulatory investigations and compliance concerns can negatively impact NVIDIA's reputation and financial performance, as well as divert resources and attention from core business activities.",
+      "risk": "Regulatory Investigations (S9, S10)",
+      "why_it_matters": "Regulatory investigations can result in fines, legal fees, and reputational damage, as well as delays in product development and market entry. The increasing focus on regulatory traceability in manufacturing and research environments can also impact NVIDIA's operations.",
       "supporting_evidence": [
         "S9",
-        "S13"
+        "S10"
       ]
     },
     {
-      "risk": "Supply Chain Disruptions (S14)",
-      "why_it_matters": "Supply chain disruptions can lead to production delays, increased costs, and lost revenue opportunities, as well as negatively impact customer relationships and market positioning.",
+      "risk": "Competitive Threats (S11, S12, S15)",
+      "why_it_matters": "Intense competition can lead to price wars, market share erosion, and decreased profitability. Negative public sentiment and regulatory investigations can further impact NVIDIA's reputation and sales.",
       "supporting_evidence": [
+        "S11",
+        "S12",
+        "S15"
+      ]
+    },
+    {
+      "risk": "Supply Chain Disruptions (S13, S14)",
+      "why_it_matters": "Supply chain disruptions can lead to production delays, increased costs, and decreased customer satisfaction. In the case of NVIDIA, the hot adapter issue and Intel-AMD partnership could impact the company's GPU supply and market position.",
+      "supporting_evidence": [
+        "S13",
         "S14"
-      ]
-    },
-    {
-      "risk": "Negative Public Sentiment (S15, S16)",
-      "why_it_matters": "Negative public sentiment can lead to decreased sales and revenue, as well as damage to NVIDIA's reputation and brand image, which can have long-term implications for the company's growth and market positioning.",
-      "supporting_evidence": [
-        "S15",
-        "S16"
       ]
     }
   ],
   "competitor_activity": [
     {
-      "competitor_activity": "Intel and AMD Partnership (S23)",
-      "strategic_meaning": "Intel and AMD's partnership can pose a threat to NVIDIA's market share and revenue, as they collaborate on PC chips to compete in the GPU market and potentially offer more competitive pricing.",
+      "competitor_activity": "Microsoft's Surface Laptop Ultra with NVIDIA-powered GPU (S23)",
+      "strategic_meaning": "Microsoft's entry into the laptop market with an NVIDIA-powered GPU poses a competitive threat to NVIDIA in the consumer electronics sector. This could lead to increased competition and potential price wars.",
       "supporting_evidence": [
         "S23"
       ]
     },
     {
-      "competitor_activity": "Hugging Face's AI Product Development (S2, S5)",
-      "strategic_meaning": "Hugging Face's new product development, with investment from NVIDIA and other major tech companies, can lead to increased competition and potential disruption in the AI market, as well as increased pressure on NVIDIA to innovate and differentiate its offerings.",
+      "competitor_activity": "Hugging Face's AI product development with NVIDIA investment (S2, S24)",
+      "strategic_meaning": "Hugging Face's AI product development, backed by NVIDIA's investment, could result in innovative solutions and increased competition in the AI sector. This could lead to improved products and services for customers, but also increased competition for NVIDIA.",
       "supporting_evidence": [
         "S2",
-        "S5"
+        "S24"
       ]
     }
   ],
   "emerging_trends": [
     {
-      "trend": "Automation and Robotics Solutions in Industries (S17)",
-      "strategic_meaning": "The increasing demand for automation and robotics solutions in industries can create new opportunities for NVIDIA to expand its product offerings and tap into new markets, as well as provide a competitive edge in the market.",
+      "trend": "Industry Shift to Proprietary Chips (S17, S18)",
+      "strategic_meaning": "The shift to proprietary chips by Chinese EV makers could impact NVIDIA's market share and revenue in the automotive sector. This trend is driven by U.S. export controls and the rapid adoption of smart-driving features in China's mass market.",
       "supporting_evidence": [
-        "S17"
+        "S17",
+        "S18"
       ]
     },
     {
-      "trend": "Adoption of AI in Everyday Life (S19, S20)",
-      "strategic_meaning": "The increasing adoption of AI in everyday life, such as in speech-to-speech technology and telemetry in drivers, can create new opportunities for NVIDIA to expand its product offerings and tap into new markets, as well as provide a competitive edge in the market.",
+      "trend": "Technology Adoption Trend (S20, S21)",
+      "strategic_meaning": "The trend towards prioritizing value for stakeholders, particularly customers, can benefit NVIDIA by fostering customer loyalty and repeat business. Additionally, Alibaba's 82% reduction in NVIDIA AI GPU use with a new pooling system could indicate a shift in the industry towards more efficient and cost-effective solutions.",
       "supporting_evidence": [
-        "S19",
-        "S20"
+        "S20",
+        "S21"
       ]
     }
   ],
   "strategic_recommendations": [
     {
-      "recommendation": "Strengthen Regulatory Compliance and Transparency (High Priority, Medium Risk)",
-      "priority": "High",
+      "recommendation": "Priority: Strategic Partnerships, Risk: Medium",
+      "priority": "Low",
       "supporting_evidence": [
-        "S9",
-        "S13"
-      ],
-      "expected_impact": "Implementing robust regulatory compliance and transparency measures can help NVIDIA mitigate regulatory risks and maintain a strong reputation, as well as position the company as a leader in ethical business practices.",
-      "risk_level": "Medium"
-    },
-    {
-      "recommendation": "Invest in Research and Development of Proprietary Chips (High Priority, Medium Risk)",
-      "priority": "High",
-      "supporting_evidence": [
-        "S21",
+        "S3",
+        "S5",
         "S25"
       ],
-      "expected_impact": "Investing in research and development of proprietary chips can help NVIDIA reduce its reliance on competitors and tap into new markets, as well as provide a competitive edge in the market.",
+      "expected_impact": "NVIDIA can leverage partnerships to enter new markets and expand its reach, as well as gain access to new technologies and resources. However, there is a medium risk associated with these partnerships due to the potential for increased competition and regulatory scrutiny.",
       "risk_level": "Medium"
     },
     {
-      "recommendation": "Expand Global Presence through Strategic Partnerships (Medium Priority, Low Risk)",
+      "recommendation": "Priority: Research and Development, Risk: Low",
+      "priority": "High",
+      "supporting_evidence": [
+        "S1",
+        "S2"
+      ],
+      "expected_impact": "Investing in research and development can lead to innovative solutions and increased sales. The low risk associated with this recommendation makes it a high priority for NVIDIA to capitalize on the high demand for new AI products.",
+      "risk_level": "Low"
+    },
+    {
+      "recommendation": "Priority: Expansion into New Markets, Risk: High",
       "priority": "Medium",
       "supporting_evidence": [
         "S7",
-        "S22"
+        "S8"
       ],
-      "expected_impact": "Expanding NVIDIA's global presence through strategic partnerships can help the company tap into new markets and increase its revenue, as well as provide a competitive edge in the market.",
-      "risk_level": "Low"
+      "expected_impact": "Expanding into new markets can lead to increased revenue and market share. However, there is a high risk associated with this recommendation due to the potential for regulatory investigations and increased competition.",
+      "risk_level": "High"
     }
   ],
   "ceo_action_plan": [
-    "Appoint a Chief Compliance Officer to oversee regulatory compliance and transparency initiatives, and allocate resources to implement robust compliance measures across the organization.",
-    "Invest $1 billion in research and development of proprietary chips and related technologies over the next three years, and establish a dedicated team to focus on this initiative.",
-    "Identify and engage with potential strategic partners in Europe and Asia to expand NVIDIA's global presence and tap into new markets, and allocate resources to support these partnerships and initiatives."
+    "Appoint a dedicated team to explore and negotiate strategic partnerships, focusing on industries and markets where NVIDIA can add value and differentiate itself (S3, S5, S25).",
+    "Invest $1 billion annually in research and development to accelerate the development of new AI products and solutions (S1, S2). This investment should focus on areas with high growth potential and differentiation from competitors.",
+    "Establish a regulatory compliance team to monitor and address regulatory investigations and requirements, ensuring that NVIDIA remains in compliance with all relevant regulations (S9, S10)."
   ],
   "sources_used": [
     {
-      "source_id": "S1, S24",
+      "source_id": "S1",
+      "type": "strategic_evidence",
+      "category": "opportunities",
+      "title": "After years in CEO Jensen Huang's orbit, these Nvidia veterans are building a startup community of their own",
+      "source": "newsapi",
+      "url": "https://www.businessinsider.com/ex-nvidia-leaders-launch-evergreen-to-back-ai-startups-2026-6#article",
+      "score": null
+    },
+    {
+      "source_id": "S2, S24, S28",
       "type": "strategic_evidence",
       "category": "competitor_activity, opportunities",
       "title": "Hugging Face raises $235M from investors including Salesforce and Nvidia",
@@ -138,211 +152,211 @@
       "score": null
     },
     {
-      "source_id": "S2",
+      "source_id": "S25, S3, S9",
       "type": "strategic_evidence",
-      "category": "opportunities",
-      "title": "Coherent Breaks Ground on Expanded Texas Facility, Scaling AI’s Optical Backbone",
+      "category": "competitor_activity, opportunities, risks",
+      "title": "AI Infrastructure Boom Drives Demand for Semiconductor, Pharmaceutical Automation",
       "source": "newsapi",
-      "url": "https://blogs.nvidia.com/blog/coherent-texas-ai-optical/",
+      "url": "https://www.globenewswire.com/news-release/2026/06/15/3311787/0/en/AI-Infrastructure-Boom-Drives-Demand-for-Semiconductor-Pharmaceutical-Automation.html",
       "score": null
     },
     {
-      "source_id": "R3, S26, S3",
+      "source_id": "R4, S4",
       "type": "strategic_evidence",
-      "category": "competitor_activity, opportunities, retrieved_context",
-      "title": "Seoul Purpose: How NVIDIA and South Korea Are Building the Future of AI",
-      "source": "rss",
-      "url": "https://blogs.nvidia.com/blog/korea-ecosystem-2026/",
-      "score": null
-    },
-    {
-      "source_id": "S14, S4",
-      "type": "strategic_evidence",
-      "category": "opportunities, risks",
-      "title": "Coherent Corp pours $650M into Texas photonics facility as NVIDIA deepens AI optics partnership",
-      "source": "newsapi",
-      "url": "https://cryptobriefing.com/coherent-corp-sherman-photonics-expansion-nvidia-ai/",
+      "category": "opportunities, retrieved_context",
+      "title": "Nvidia CEO Jensen Huang announces new AI chips: ‘We need bigger GPUs’",
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=39749646",
       "score": null
     },
     {
       "source_id": "S5",
       "type": "strategic_evidence",
       "category": "opportunities",
-      "title": "U.S. Export Controls Are The Gift That Keeps On Giving...To The CCP",
+      "title": "Evolution Digital Technologies Launches Enhanced Shared Computing Infrastructure to Support Growing AI Demand",
       "source": "newsapi",
-      "url": "https://www.forbes.com/sites/johntamny/2026/06/16/us-export-controls-are-the-gift-that-keeps-on-givingto-the-ccp/",
+      "url": "https://www.globenewswire.com/news-release/2026/06/15/3311965/0/en/Evolution-Digital-Technologies-Launches-Enhanced-Shared-Computing-Infrastructure-to-Support-Growing-AI-Demand.html",
       "score": null
     },
     {
       "source_id": "S6",
       "type": "strategic_evidence",
       "category": "opportunities",
-      "title": "Bull and Foxconn advance European AI infrastructure with NVIDIA Vera Rubin NVL72 platform built in Europe",
-      "source": "newsapi",
-      "url": "https://www.globenewswire.com/news-release/2026/06/17/3313162/0/en/Bull-and-Foxconn-advance-European-AI-infrastructure-with-NVIDIA-Vera-Rubin-NVL72-platform-built-in-Europe.html",
+      "title": "Arm co-founder: Sale to Nvidia would be a disaster",
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=24173539",
       "score": null
     },
     {
-      "source_id": "S22, S7",
+      "source_id": "S7",
       "type": "strategic_evidence",
-      "category": "opportunities, trends",
-      "title": "OpenAI, Nvidia fuel $1T AI market with web of circular deals",
+      "category": "opportunities",
+      "title": "Nvidia announces financial results for second quarter fiscal 2024",
       "source": "hackernews",
-      "url": "https://news.ycombinator.com/item?id=45521629",
+      "url": "https://news.ycombinator.com/item?id=37241487",
       "score": null
     },
     {
       "source_id": "S8",
       "type": "strategic_evidence",
       "category": "opportunities",
-      "title": "NVIDIA’s CEO Says the Jobs Doomsayers Have It Backwards. Here’s Why",
-      "source": "newsapi",
-      "url": "https://247wallst.com/investing/2026/06/21/nvidias-ceo-says-the-jobs-doomsayers-have-it-backwards-heres-why/",
+      "title": "OpenAI, Nvidia fuel $1T AI market with web of circular deals",
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=45521629",
       "score": null
     },
     {
-      "source_id": "S11, S12, S9",
+      "source_id": "S10",
       "type": "strategic_evidence",
       "category": "risks",
-      "title": "LibreCUDA – Launch CUDA code on Nvidia GPUs without the proprietary runtime",
-      "source": "hackernews",
-      "url": "https://news.ycombinator.com/item?id=41194024",
-      "score": null
-    },
-    {
-      "source_id": "S10, S17",
-      "type": "strategic_evidence",
-      "category": "risks, trends",
       "title": "AI Infrastructure Boom Creates Skyrocketing Demand for Automation, Robotics Solutions Across Industries",
       "source": "newsapi",
       "url": "https://www.globenewswire.com/news-release/2026/06/17/3313415/0/en/AI-Infrastructure-Boom-Creates-Skyrocketing-Demand-for-Automation-Robotics-Solutions-Across-Industries.html",
       "score": null
     },
     {
+      "source_id": "S11",
+      "type": "strategic_evidence",
+      "category": "risks",
+      "title": "Analyst Warns Intel Valuation ‘Doesn’t Make Sense.’ Suggests NVIDIA, AMD, Micron, and Broadcom as Alternatives.",
+      "source": "newsapi",
+      "url": "https://247wallst.com/investing/2026/06/19/analyst-warns-intel-valuation-doesnt-make-sense-suggests-nvidia-amd-micron-and-broadcom-as-alternatives/",
+      "score": null
+    },
+    {
+      "source_id": "S12",
+      "type": "strategic_evidence",
+      "category": "risks",
+      "title": "Jensen Huang on his relationship with Trump: ‘calls me in the middle of the night’",
+      "source": "newsapi",
+      "url": "https://fortune.com/2026/06/17/jensen-huang-trump-nvidia-ai-midnight-calls-relationship/",
+      "score": null
+    },
+    {
       "source_id": "S13",
       "type": "strategic_evidence",
       "category": "risks",
-      "title": "FTC sues to block Nvidia-Arm merger",
+      "title": "Nvidia’s hot adapter for the GeForce RTX 4090 with a built-in breaking point",
       "source": "hackernews",
-      "url": "https://news.ycombinator.com/item?id=29422071",
+      "url": "https://news.ycombinator.com/item?id=33373729",
       "score": null
     },
     {
-      "source_id": "S15",
+      "source_id": "S14",
       "type": "strategic_evidence",
       "category": "risks",
-      "title": "Nvidia to join Dow Jones Industrial Average, replacing Intel",
-      "source": "hackernews",
-      "url": "https://news.ycombinator.com/item?id=42022282",
-      "score": null
-    },
-    {
-      "source_id": "S16",
-      "type": "strategic_evidence",
-      "category": "risks",
-      "title": "Patreon CEO Jack Conte on supporting artists in the AI slop era",
-      "source": "rss",
-      "url": "https://www.theverge.com/podcast/952607/patreon-ceo-jack-conte",
-      "score": null
-    },
-    {
-      "source_id": "S18",
-      "type": "strategic_evidence",
-      "category": "trends",
-      "title": "Semiconductor Stocks Fall After Microsoft Ends Oracle Cloud Deal Talks",
-      "source": "newsapi",
-      "url": "https://www.naturalnews.com/2026-06-20-semiconductor-stocks-fall-microsoft-ends-oracle-deal.html",
-      "score": null
-    },
-    {
-      "source_id": "S19",
-      "type": "strategic_evidence",
-      "category": "trends",
-      "title": "Nvidia adds telemetry to latest drivers",
-      "source": "hackernews",
-      "url": "https://news.ycombinator.com/item?id=12884762",
-      "score": null
-    },
-    {
-      "source_id": "S20",
-      "type": "strategic_evidence",
-      "category": "trends",
-      "title": "Nvidia PersonaPlex 7B on Apple Silicon: Full-Duplex Speech-to-Speech in Swift",
-      "source": "hackernews",
-      "url": "https://news.ycombinator.com/item?id=47258801",
-      "score": null
-    },
-    {
-      "source_id": "R4, R5, S21",
-      "type": "strategic_evidence",
-      "category": "retrieved_context, trends",
-      "title": "Chinese EV Makers Shift to Proprietary Chips, Reducing Reliance on Nvidia",
-      "source": "newsapi",
-      "url": "https://www.naturalnews.com/2026-06-17-chinese-ev-makers-shift-proprietary-chips-nvidia.html",
-      "score": null
-    },
-    {
-      "source_id": "S23",
-      "type": "strategic_evidence",
-      "category": "competitor_activity",
       "title": "Rivals Intel and AMD Team Up on PC Chips to Battle Nvidia",
       "source": "hackernews",
       "url": "https://news.ycombinator.com/item?id=15635249",
       "score": null
     },
     {
-      "source_id": "S25",
+      "source_id": "S15, S16, S19",
       "type": "strategic_evidence",
-      "category": "competitor_activity",
-      "title": "Nvidia Warp: A Python framework for high performance GPU simulation and graphics",
+      "category": "risks, trends",
+      "title": "Nvidia to join Dow Jones Industrial Average, replacing Intel",
       "source": "hackernews",
-      "url": "https://news.ycombinator.com/item?id=40680737",
+      "url": "https://news.ycombinator.com/item?id=42022282",
       "score": null
     },
     {
-      "source_id": "S27",
+      "source_id": "S17, S22",
       "type": "strategic_evidence",
-      "category": "competitor_activity",
-      "title": "Alibaba Cloud says it cut Nvidia AI GPU use by 82% with new pooling system",
-      "source": "hackernews",
-      "url": "https://news.ycombinator.com/item?id=45643163",
+      "category": "trends",
+      "title": "Chinese EV Makers Shift to Proprietary Chips, Reducing Reliance on Nvidia",
+      "source": "newsapi",
+      "url": "https://www.naturalnews.com/2026-06-17-chinese-ev-makers-shift-proprietary-chips-nvidia.html",
       "score": null
     },
     {
-      "source_id": "S28",
+      "source_id": "R6, R7, S18",
       "type": "strategic_evidence",
-      "category": "competitor_activity",
+      "category": "retrieved_context, trends",
+      "title": "Semiconductor Stocks Fall After Microsoft Ends Oracle Cloud Deal Talks",
+      "source": "newsapi",
+      "url": "https://www.naturalnews.com/2026-06-20-semiconductor-stocks-fall-microsoft-ends-oracle-deal.html",
+      "score": null
+    },
+    {
+      "source_id": "S20",
+      "type": "strategic_evidence",
+      "category": "trends",
       "title": "Lest We Forget: Why Maximizing Shareholder Value Failed The First Time",
       "source": "newsapi",
       "url": "https://www.forbes.com/sites/stevedenning/2026/06/21/lest-we-forget-why-maximizing-shareholder-value-failed-the-first-time/",
       "score": null
     },
     {
+      "source_id": "S21",
+      "type": "strategic_evidence",
+      "category": "trends",
+      "title": "Alibaba Cloud says it cut Nvidia AI GPU use by 82% with new pooling system",
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=45643163",
+      "score": null
+    },
+    {
+      "source_id": "S23",
+      "type": "strategic_evidence",
+      "category": "competitor_activity",
+      "title": "Microsoft builds MacBook Pro rival with NVIDIA-powered Surface Laptop Ultra",
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=48355720",
+      "score": null
+    },
+    {
+      "source_id": "S26",
+      "type": "strategic_evidence",
+      "category": "competitor_activity",
+      "title": "Nvidia to buy assets from Groq for $20B cash",
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=46379183",
+      "score": null
+    },
+    {
+      "source_id": "S27",
+      "type": "strategic_evidence",
+      "category": "competitor_activity",
+      "title": "Nvidia takes $1B stake in Nokia",
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=45734486",
+      "score": null
+    },
+    {
       "source_id": "R1",
       "type": "retrieved_context",
       "category": "retrieved_context",
-      "title": "SEC charges Nvidia with inadequate disclosures about impact of cryptomining",
-      "source": "hackernews",
-      "url": "https://news.ycombinator.com/item?id=31407397",
-      "score": 0.3392
+      "title": "‘Phone prices are going up and they’ll keep going up into next year’ — yet another tech CEO says the RAM crisis won’t end soon",
+      "source": "newsapi",
+      "url": "https://www.techradar.com/tech/phone-prices-are-going-up-and-theyll-keep-going-up-into-next-year-yet-another-tech-ceo-says-the-ram-crisis-wont-end-soon",
+      "score": 0.2046
     },
     {
-      "source_id": "R2, R7",
+      "source_id": "R2",
       "type": "retrieved_context",
       "category": "retrieved_context",
-      "title": "Nvidia CEO Jensen Huang wants you to stop fearing AI and start using it",
-      "source": "newsapi",
-      "url": "https://cryptobriefing.com/nvidia-jensen-huang-ai-trump-interview/",
-      "score": 0.2127
+      "title": "Nvidia prepares to abandon $40B Arm bid",
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=30070425",
+      "score": 0.1656
     },
     {
-      "source_id": "R6",
+      "source_id": "R3",
       "type": "retrieved_context",
       "category": "retrieved_context",
       "title": "Nvidia buys $5B in Intel",
       "source": "hackernews",
       "url": "https://news.ycombinator.com/item?id=45288161",
-      "score": 0.1389
+      "score": 0.149
+    },
+    {
+      "source_id": "R5",
+      "type": "retrieved_context",
+      "category": "retrieved_context",
+      "title": "Nvidia's Jensen Huang says society needs 'new social norms' in age of AI",
+      "source": "newsapi",
+      "url": "https://www.thehindubusinessline.com/info-tech/nvidias-jensen-huang-says-society-needs-new-social-norms-in-age-of-ai/article71111819.ece",
+      "score": 0.1354
     }
   ]
 }
