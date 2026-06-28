@@ -1,18 +1,13 @@
 from automate import full
-from . import main
+import main as dashboard
 def main():
     
     full.main()
     print("\n" + "=" * 50)
     print("dashboard STARTING NOW !! \n")
     print("=" * 50)
-    main.main()
+    dashboard.main()
 
-    
-
-
-
-    
 
 
 if __name__ == "__main__":
