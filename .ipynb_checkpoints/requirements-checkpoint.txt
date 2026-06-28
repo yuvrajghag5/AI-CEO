@@ -9,6 +9,8 @@ chromadb
 langchain-text-splitters
 langchain-ollama 
 langchain-core
+langgraph 
+langchain-huggingface
 transformers
 torch
 accelerate

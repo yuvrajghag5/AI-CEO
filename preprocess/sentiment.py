@@ -19,7 +19,7 @@ def load_json(path):
 def classify(compound_score):
     if compound_score >= 0.05:
         return "positive"
-    elif compound_score <= -0.05:
+    elif compound_score <= -0.03:
         return "negative"
     return "neutral"
  

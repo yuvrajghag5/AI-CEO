@@ -12,7 +12,7 @@ CANDIDATE_POOL_SIZE = 30
 #RAG & AGENT
 
 TOP_K = 7
-MODEL = "mistralai/Mistral-7B-Instruct-v0.2"
+MODEL = "mistralai/Mistral-7B-Instruct-v0.3"
 MAX_NEW_TOKENS_AGENT = 4000
 MAX_NEW_TOKENS_RAG = 600
 TEMPERATURE = 0.4

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T04:15:01.127482+00:00",
+  "generated_at": "2026-06-23T09:00:32.892572+00:00",
   "opportunities": [
     {
       "title": "new product launch",
@@ -350,20 +350,27 @@
     },
     {
       "title": "customer behavior change",
-      "confidence": 0.84,
+      "confidence": 0.88,
       "impact": "High",
       "supporting_doc_ids": [
         129,
         3,
         99,
         170,
-        171,
         209,
         177,
         150,
-        183
+        183,
+        219
       ],
       "evidence": [
+        {
+          "doc_id": 219,
+          "source": "rss",
+          "title": "NVIDIA Brings Trusted, 24/7 AI Agents to Telecom Operations",
+          "url": "https://blogs.nvidia.com/blog/telecom-ai-agents-dtw-ignite-2026/",
+          "excerpt": "customer-care agents, including roaming assistance scenarios where autonomous agents can identify customers whose roaming package is nearing depletion, engage them with approved options and execute actions within defined business policies and operational controls. Amdocsis also applying this runtime to autonomous data‑science agents that analyze customer accounts and assess migration eligibility,"
+        },
         {
           "doc_id": 170,
           "source": "hackernews",
@@ -377,13 +384,6 @@
           "title": "Lest We Forget: Why Maximizing Shareholder Value Failed The First Time",
           "url": "https://www.forbes.com/sites/stevedenning/2026/06/21/lest-we-forget-why-maximizing-shareholder-value-failed-the-first-time/",
           "excerpt": "better path is already proving itself. Around 30% of public firms (and perhaps 70% of small private firms) are successfully prioritizing value for stakeholders, particularly customers. Firms led by Satya Nadella (Microsoft), Jensen Huang (Nvidia), and Reed Hastings (Netflix), show how this approach doesn’t just feel better: it delivers superior TSR and ROIC. These firms prioritized customer value"
-        },
-        {
-          "doc_id": 150,
-          "source": "hackernews",
-          "title": "SoftBank's Sale of Arm to Nvidia Collapses, Arm to IPO",
-          "url": "https://news.ycombinator.com/item?id=30254201",
-          "excerpt": "from their stockholders will cause rent seeking behavior? Even if they sold to nvidia frankly. A: \"we grew to billions of dollars without ripping off our customers\" B: \"it is a failure as a business. If you employed underhand tactics you could be even bigger!\" This is the phylosophy that gives us DRM on cars, 100 page lisence agreement with TVs, and fraud on wallstreet. but let's be honest, it is"
         }
       ]
     },
