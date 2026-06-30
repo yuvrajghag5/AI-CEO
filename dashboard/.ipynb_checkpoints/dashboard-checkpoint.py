@@ -456,6 +456,55 @@ def panel_ceo_briefing(result):
             st.divider()
 
 
+def panel_sources(result):
+    """
+    Dedicated Sources panel: every source cited in the latest answer,
+    keyed by its S-ID, with source-type badge, title, clickable link, and
+    excerpt. This is the grounding made visible -- the actual corpus
+    documents behind the current briefing.
+    """
+    st.title("Sources Used")
+    b = (result or {}).get("briefing")
+    sources = (b or {}).get("_sources", {})
+
+    if not sources:
+        empty("Sources appear here once you ask a question that produces a briefing.")
+        return
+
+    st.markdown(
+        f'<p style="color:{TEXT_MUTED};">{len(sources)} source(s) cited in the '
+        f'latest analysis. Every claim in the briefing references one of these by ID.</p>',
+        unsafe_allow_html=True,
+    )
+
+    # color the source-type pill by provider
+    src_colors = {
+        "newsapi": "#4aa8e0",
+        "rss": NVIDIA_GREEN,
+        "hackernews": "#d8a13a",
+    }
+
+    for sid, src in sources.items():
+        provider = src.get("source", "")
+        color = src_colors.get(provider, TEXT_MUTED)
+        url = src.get("url", "")
+        excerpt = (src.get("excerpt", "") or "")[:280]
+
+        title_html = src.get("title", "(untitled)")
+        if url:
+            title_html = f'<a href="{url}" target="_blank">{title_html}</a>'
+
+        st.markdown(
+            f"""<div class="evidence-card">
+                    <span class="source-pill">{sid}</span>
+                    <span class="badge" style="background-color:{color}22;color:{color};">{provider}</span>
+                    <h4 style="margin-top:8px;">{title_html}</h4>
+                    <p style="color:{TEXT_MUTED};font-size:0.85rem;">{excerpt}{'…' if excerpt else ''}</p>
+                </div>""",
+            unsafe_allow_html=True,
+        )
+
+
 # ================================================================ #
 # MAIN  — chat left, 7 panels as tabs right
 # ================================================================ #
@@ -527,7 +576,7 @@ def main():
         result = st.session_state.latest
         tabs = st.tabs([
             "Overview", "Market Intel", "Opportunities",
-            "Risks", "Sentiment", "Recommendations", "CEO Briefing",
+            "Risks", "Sentiment", "Recommendations", "CEO Briefing", "Sources",
         ])
         with tabs[0]:
             panel_overview()
@@ -543,6 +592,8 @@ def main():
             panel_recommendations(result)
         with tabs[6]:
             panel_ceo_briefing(result)
+        with tabs[7]:
+            panel_sources(result)
 
 
 if __name__ == "__main__":

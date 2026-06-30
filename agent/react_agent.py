@@ -100,6 +100,62 @@ def _is_nvidia_relevant(question):
 # ----------------------------------------------------------------------
 # deterministic briefing -> structured chat answer
 # ----------------------------------------------------------------------
+# Shown when retrieval finds nothing relevant in the corpus -- the agent
+# answers ONLY from the provided corpus, never from the model's own
+# training knowledge, so an uncovered question gets this instead of a
+# (potentially hallucinated) answer.
+NO_CORPUS_INFO_MESSAGE = (
+    "No relevant information is present in the corpus for this question. "
+    "The agent answers only from the collected NVIDIA intelligence corpus, "
+    "and nothing in it addresses this query."
+)
+
+# the literal string engine/rag emit when a category/seek finds nothing
+_EMPTY_EVIDENCE_MARKERS = (
+    "(no relevant evidence found)",
+    "(no evidence found)",
+)
+
+
+def _has_real_evidence(result: dict) -> bool:
+    """
+    True if ANY tool actually returned corpus evidence this turn.
+
+    Covers both paths:
+      - seeker tools: their result text is non-empty and is NOT the
+        engine's "(no relevant evidence found)" marker.
+      - generate_ceo_briefing: a non-error briefing dict means
+        gather_evidence found real evidence (briefing.py returns an
+        {"error": ...} dict when the corpus had nothing).
+    A turn with zero tool calls (e.g. an off-topic question the model
+    answered directly) also counts as no evidence.
+    """
+    evidence = result.get("evidence", [])
+    if not evidence:
+        return False
+
+    for ev in evidence:
+        raw = ev.get("result", "")
+        if not isinstance(raw, str) or not raw.strip():
+            continue
+
+        if ev.get("tool") == "generate_ceo_briefing":
+            # a valid (non-error) briefing implies real evidence
+            try:
+                parsed = json.loads(raw)
+                if isinstance(parsed, dict) and "error" not in parsed:
+                    return True
+            except (json.JSONDecodeError, TypeError):
+                pass
+            continue
+
+        # seeker tool: real if it's not just an empty-evidence marker
+        if not any(marker in raw for marker in _EMPTY_EVIDENCE_MARKERS):
+            return True
+
+    return False
+
+
 def _format_briefing_as_answer(b: dict) -> str:
     """
     Build the chat answer DETERMINISTICALLY from the structured briefing
@@ -378,6 +434,27 @@ def ask(question: str, memory: list | None = None) -> dict:
         "validation": {},
     }
     result = app.invoke(init, config={"recursion_limit": 12})
+
+    # --- empty-corpus guard ---
+    # If no tool returned real corpus evidence this turn, the question is
+    # not covered by the corpus. Answer ONLY from the corpus: return the
+    # no-information message rather than letting the model answer from its
+    # own training knowledge. Deterministic -- the model can't override it.
+    if not _has_real_evidence(result):
+        return {
+            "question": question,
+            "answer": NO_CORPUS_INFO_MESSAGE,
+            "plan": result.get("plan", ""),
+            "tool_calls": result.get("executed", []),
+            "evidence": [],
+            "briefing": None,
+            "validation": {
+                "citations_checked": 0,
+                "citations_verified": 0,
+                "flagged": [],
+                "passed": True,
+            },
+        }
 
     briefing = None
     for ev in result.get("evidence", []):
