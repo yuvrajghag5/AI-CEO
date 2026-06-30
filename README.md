@@ -101,9 +101,10 @@ flowchart TD
 
     subgraph E[Strategic Intelligence Engine]
         E1[engine.seek category, topic]
-        E2[Topic + anchor-phrase<br/>semantic search]
-        E3[NVIDIA / competitor filtering]
-        E4[Confidence scoring]
+        E2[Risk Seeker tool]
+        E3[Opportunity seeker tool]
+        E4[Trend seeker tool]
+        E5[Competitor activity tool]
     end
 
     subgraph G[RAG + ReAct Agent]
@@ -125,8 +126,8 @@ flowchart TD
     S3 --> C3 --> C4
     C4 --> P1 --> P2 --> P3 --> V1 --> V2
 
-    V2 --> E1 --> E2 --> E3 --> E4
-    E4 --> G1 --> G2
+    V2 --> E1 --> E2 --> E3 --> E4 --> E5
+    E5 --> G1 --> G2
     G2 --> G3 --> E1
     G2 --> G4 --> G5 --> G6
     G6 --> D1 --> D2
