@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T09:00:32.892572+00:00",
+  "generated_at": "2026-06-28T17:34:34.307669+00:00",
   "opportunities": [
     {
       "title": "new product launch",
-      "confidence": 0.96,
+      "confidence": 0.93,
       "impact": "High",
       "supporting_doc_ids": [
         7,
@@ -42,7 +42,7 @@
     },
     {
       "title": "partnership announcement",
-      "confidence": 0.98,
+      "confidence": 0.94,
       "impact": "High",
       "supporting_doc_ids": [
         40,
@@ -79,7 +79,7 @@
     },
     {
       "title": "emerging technology adoption",
-      "confidence": 0.97,
+      "confidence": 0.93,
       "impact": "High",
       "supporting_doc_ids": [
         153,
@@ -116,7 +116,7 @@
     },
     {
       "title": "new market expansion",
-      "confidence": 0.9,
+      "confidence": 0.87,
       "impact": "High",
       "supporting_doc_ids": [
         129,
@@ -158,7 +158,7 @@
   "risks": [
     {
       "title": "regulatory investigation",
-      "confidence": 0.67,
+      "confidence": 0.65,
       "impact": "Medium",
       "supporting_doc_ids": [
         40,
@@ -195,7 +195,7 @@
     },
     {
       "title": "competitive threat",
-      "confidence": 0.67,
+      "confidence": 0.63,
       "impact": "Medium",
       "supporting_doc_ids": [
         34,
@@ -233,7 +233,7 @@
     },
     {
       "title": "supply chain disruption",
-      "confidence": 0.66,
+      "confidence": 0.65,
       "impact": "Medium",
       "supporting_doc_ids": [
         132,
@@ -273,7 +273,7 @@
     },
     {
       "title": "negative public sentiment",
-      "confidence": 0.67,
+      "confidence": 0.65,
       "impact": "Medium",
       "supporting_doc_ids": [
         34,
@@ -312,7 +312,7 @@
   "trends": [
     {
       "title": "industry shift",
-      "confidence": 0.82,
+      "confidence": 0.79,
       "impact": "High",
       "supporting_doc_ids": [
         165,
@@ -389,7 +389,7 @@
     },
     {
       "title": "technology adoption trend",
-      "confidence": 0.86,
+      "confidence": 0.83,
       "impact": "High",
       "supporting_doc_ids": [
         165,
@@ -428,7 +428,7 @@
   "competitor_activity": [
     {
       "title": "competitor product launch",
-      "confidence": 0.77,
+      "confidence": 0.75,
       "impact": "High",
       "supporting_doc_ids": [
         129,
@@ -467,7 +467,7 @@
     },
     {
       "title": "competitor partnership",
-      "confidence": 0.81,
+      "confidence": 0.77,
       "impact": "High",
       "supporting_doc_ids": [
         135,
@@ -503,7 +503,7 @@
     },
     {
       "title": "competitor market share",
-      "confidence": 0.79,
+      "confidence": 0.76,
       "impact": "High",
       "supporting_doc_ids": [
         129,

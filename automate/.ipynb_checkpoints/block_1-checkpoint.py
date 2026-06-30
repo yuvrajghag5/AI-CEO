@@ -10,7 +10,7 @@ Run: python -m collectors.run_pipeline
 from collectors import run_pipeline
 from preprocess import clean, sentiment, chunks
 from storage import store
-from engine import engine
+# from engine import engine
 
 
 def main():
@@ -47,7 +47,7 @@ def main():
     print("\n" + "=" * 50)
     print("Strategic Intelligence Engine STARTING NOW !! ")
     print("=" * 50)
-    engine.main()
+    # engine.main()
 
 
     print("\n" + "=" * 50)

@@ -1,128 +1,47 @@
+"""
+RAG retrieval for the CEO briefing  (Box 5 -- retrieval half)
 
-import chromadb
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer,  BitsAndBytesConfig
-from rag.prompt import RAG_PROMPT
-from config.settings import TOP_K, MODEL, MAX_NEW_TOKENS_RAG, NO_REPEAT_NGRAM_SIZE, REPETITION_PENALTY, DO_SAMPLE, TOP_P, TEMPERATURE
-from config.paths import VECTORDB
+ONE job: given a topic, run seek() across all four categories
+(risks/opportunities/trends/competitor_activity), flatten the results
+into one numbered evidence block (S1, S2, ...) plus a source lookup.
+This is the "retrieve + augment" half of RAG -- embed the topic,
+pull matching chunks from ChromaDB via seek(), assemble them for the
+prompt. The "generate" half lives in agent/briefing.py, which takes
+this evidence and runs schema-constrained LLM generation on top of it.
 
-CHROMA_DIR = VECTORDB / "./chroma_db"
-COLLECTION_NAME = "ai_ceo_documents"
-MODEL_NAME = MODEL   
-TOP_K = TOP_K
-MAX_NEW_TOKENS = MAX_NEW_TOKENS_RAG
-NO_REPEAT_NGRAM_SIZE = NO_REPEAT_NGRAM_SIZE
-REPETITION_PENALTY = REPETITION_PENALTY
-DO_SAMPLE = DO_SAMPLE
-TOP_P = TOP_P
-TEMPERATURE = TEMPERATURE
+Deliberately self-contained: re-runs seek() itself for all four
+categories rather than depending on what any caller already gathered.
 
-# Fixed question — matches the one required query for this project.
-CEO_QUESTION = "If you were the CEO of NVIDIA today, what would you do next and why?"
- 
-memory = []
+Place at: rag/rag.py
+(rag/ needs an __init__.py -- can be empty -- for this import to work:
+ from rag.rag import gather_evidence)
+"""
+from engine.engine import seek
 
- 
-def get_collection():
-    client = chromadb.PersistentClient(path=CHROMA_DIR)
-    return client.get_or_create_collection(COLLECTION_NAME)
- 
- 
-def load_model():
-    print(f"Loading {MODEL_NAME} ... (this can take a while on first run)")
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
- 
-    quant_config = BitsAndBytesConfig(
-        load_in_4bit=True,
-        bnb_4bit_compute_dtype=torch.bfloat16,
-        bnb_4bit_quant_type="nf4",
-    )
- 
-    try:
-        model = AutoModelForCausalLM.from_pretrained(
-            MODEL_NAME,
-            quantization_config=quant_config,
-            device_map="auto",
-        )
-    except torch.cuda.OutOfMemoryError:
-        print("  GPU out of memory (shared GPU likely busy) — falling back to CPU. This will be slower.")
-        torch.cuda.empty_cache()
-        model = AutoModelForCausalLM.from_pretrained(
-            MODEL_NAME,
-            device_map="cpu",
-        )
- 
-    return tokenizer, model
- 
- 
-def retrieve_context(collection, question, top_k=TOP_K):
-    results = collection.query(query_texts=[question], n_results=top_k)
- 
-    chunks = []
-    for i in range(len(results["ids"][0])):
-        meta = results["metadatas"][0][i]
-        text = results["documents"][0][i]
-        chunks.append(f"[{meta.get('source')} | {meta.get('title')}]\n{text}")
- 
-    return "\n\n---\n\n".join(chunks)
- 
- 
-def format_history(memory, max_turns=3):
-    """Use only the last few turns to keep the prompt short."""
-    if not memory:
-        return "(no previous conversation)"
-    recent = memory[-max_turns:]
-    return "\n".join(f"Q: {turn['question']}\nA: {turn['answer']}" for turn in recent)
- 
- 
-def generate_response(prompt_text, tokenizer, model):
-    messages = [{"role": "user", "content": prompt_text}]
-    chat_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
- 
-    inputs = tokenizer(chat_text, return_tensors="pt").to(model.device)
- 
-    output_ids = model.generate(
-        **inputs,
-        max_new_tokens=MAX_NEW_TOKENS,
-        do_sample=DO_SAMPLE,
-        temperature=TEMPERATURE,
-        top_p=TOP_P,
-        repetition_penalty=REPETITION_PENALTY,
-        no_repeat_ngram_size=NO_REPEAT_NGRAM_SIZE,
-        pad_token_id=tokenizer.eos_token_id,
-    )
- 
-    generated_tokens = output_ids[0][inputs["input_ids"].shape[1]:]
-    return tokenizer.decode(generated_tokens, skip_special_tokens=True)
- 
- 
-def answer_question(question, tokenizer, model, collection):
-    context = retrieve_context(collection, question)
-    history = format_history(memory)
- 
-    prompt_text = RAG_PROMPT.format(history=history, context=context, question=question)
-    answer = generate_response(prompt_text, tokenizer, model).strip()
- 
-    memory.append({"question": question, "answer": answer})
-    return answer
- 
- 
-def main():
-    collection = get_collection()
-    if collection.count() == 0:
-        print("ChromaDB collection is empty. Run store.py first.")
-        return
- 
-    tokenizer, model = load_model()
- 
-    answer = answer_question(CEO_QUESTION, tokenizer, model, collection)
- 
-    print("\n" + "=" * 60)
-    print(f"QUESTION: {CEO_QUESTION}")
-    print("=" * 60 + "\n")
-    print(answer)
- 
- 
-if __name__ == "__main__":
-    main()
- 
+CATEGORIES = ["risks", "opportunities", "trends", "competitor_activity"]
+
+
+def gather_evidence(topic):
+    """
+    Run seek() for all four categories, flatten into one numbered
+    evidence block (S1, S2, ...) -- the only valid citation IDs.
+    Returns (formatted_text, source_lookup).
+    """
+    lines = []
+    source_lookup = {}
+    sid = 1
+
+    for category in CATEGORIES:
+        result = seek(category, topic)
+        if not result["evidence"]:
+            continue
+        lines.append(f"\n{category.upper().replace('_', ' ')} "
+                     f"(confidence: {result['confidence']}, impact: {result['impact']}):")
+        for ev in result["evidence"]:
+            source_id = f"S{sid}"
+            lines.append(f"  [{source_id}] [{ev['source']}] {ev['title']} — {ev['excerpt'][:200]}")
+            source_lookup[source_id] = ev
+            sid += 1
+
+    formatted = "\n".join(lines) if lines else "(no relevant evidence found)"
+    return formatted, source_lookup

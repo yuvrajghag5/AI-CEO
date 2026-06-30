@@ -1,26 +1,43 @@
-import json
+"""
+Strategic Intelligence Engine  (Box 2)
+
+ONE job: given a category (opportunities / risks / trends /
+competitor_activity) and the user's topic, return scored evidence for
+that topic, pulled semantically from ChromaDB (filled by Box 1).
+
+The four "seeker" tools in Box 3 each call seek() with a different
+category. That's the whole connection between this file and the agent.
+
+How seek() works, in plain steps:
+  1. Take the user's topic (e.g. "supply chain").
+  2. Fuse it with each of the category's anchor phrases, so under
+     "risks" it searches "supply chain disruption", "supply chain
+     regulatory investigation", etc. — risk-flavoured, not bare topic.
+  3. Semantic-search ChromaDB for each fused phrase.
+  4. Keep only chunks that actually mention NVIDIA or a competitor.
+  5. Score how confident we are (more sources + right sentiment +
+     more recent = higher), and return the top evidence.
+
+Place at: engine/engine.py
+Run standalone: python -m engine.engine
+"""
 from datetime import datetime, timezone
+
 import chromadb
-from config.paths import VECTORDB, EVIDENCE
+
+from config.paths import VECTORDB
 from config.settings import TOP_K_PER_ANCHOR, CANDIDATE_POOL_SIZE
 
 CHROMA_DIR = VECTORDB / "chroma_db"
 COLLECTION_NAME = "ai_ceo_documents"
-OUTPUT_FILE = EVIDENCE / "evidence.json"
 
+# a chunk only counts if it mentions one of these (keeps off-topic news out)
 RELEVANT_COMPANIES = [
-    "nvidia",
-    "amd",
-    "intel",
-    "qualcomm",
-    "broadcom",
-    "tsmc",
-    "samsung",
-    "arm",
-    "micron",
-    "asml",
+    "nvidia", "amd", "intel", "qualcomm", "broadcom",
+    "tsmc", "samsung", "arm", "micron", "asml",
 ]
 
+# the "flavour" phrases that turn a bare topic into a category-shaped search
 ANCHOR_PHRASES = {
     "opportunities": [
         "new product launch",
@@ -48,15 +65,20 @@ ANCHOR_PHRASES = {
 
 SENTIMENT_WEIGHT = {"positive": 1.0, "neutral": 0.5, "negative": 0.0}
 
+_collection = None
+
 
 def get_collection():
-    client = chromadb.PersistentClient(path=str(CHROMA_DIR))
-    return client.get_or_create_collection(COLLECTION_NAME)
+    """Open ChromaDB once and reuse it."""
+    global _collection
+    if _collection is None:
+        client = chromadb.PersistentClient(path=str(CHROMA_DIR))
+        _collection = client.get_or_create_collection(COLLECTION_NAME)
+    return _collection
 
 
 def recency_weight(published_date_str):
-    """More recent documents get a higher weight (0 to 1).
-    Falls back to a neutral 0.5 if the date can't be parsed."""
+    """Newer documents score higher (1.0 down to 0.25). 0.5 if unknown."""
     if not published_date_str:
         return 0.5
     try:
@@ -74,38 +96,35 @@ def recency_weight(published_date_str):
         return 0.5
 
 
+def is_relevant(title, excerpt):
+    """True if this chunk actually mentions NVIDIA or a known competitor."""
+    text = f"{title or ''} {excerpt or ''}".lower()
+    return any(company in text for company in RELEVANT_COMPANIES)
+
+
 def compute_confidence(matches, category):
     """
-    Rule-based confidence score (0 to 1), based on:
-      - number of unique source documents matching the anchor
-      - average sentiment alignment (risks favor negative sentiment,
-        opportunities/trends favor positive/neutral)
-      - average recency of the matching documents
+    A 0-1 score for how solid this evidence is:
+      - 50%: how many distinct source documents back it (caps at 5)
+      - 30%: sentiment fit (risks want negative news; opportunities/
+             trends want positive; competitor news is neutral either way)
+      - 20%: how recent the evidence is on average
     """
-    unique_doc_ids = {m["doc_id"] for m in matches}
-    source_count_score = min(len(unique_doc_ids) / 5, 1.0)  # caps out at 5+ sources
+    unique_docs = {m["doc_id"] for m in matches}
+    source_score = min(len(unique_docs) / 5, 1.0)
 
     if category == "risks":
-        sentiment_scores = [
-            1.0 - SENTIMENT_WEIGHT.get(m["sentiment_label"], 0.5) for m in matches
-        ]
+        sentiment = [1.0 - SENTIMENT_WEIGHT.get(m["sentiment_label"], 0.5) for m in matches]
     elif category == "competitor_activity":
-        # sentiment direction isn't meaningful here — competitor news being
-        # "positive" isn't a good or bad sign for us either way
-        sentiment_scores = [0.5 for _ in matches]
+        sentiment = [0.5 for _ in matches]
     else:
-        sentiment_scores = [
-            SENTIMENT_WEIGHT.get(m["sentiment_label"], 0.5) for m in matches
-        ]
-    avg_sentiment_score = sum(sentiment_scores) / len(sentiment_scores) if sentiment_scores else 0.5
+        sentiment = [SENTIMENT_WEIGHT.get(m["sentiment_label"], 0.5) for m in matches]
+    sentiment_score = sum(sentiment) / len(sentiment) if sentiment else 0.5
 
-    recency_scores = [recency_weight(m["published_date"]) for m in matches]
-    avg_recency_score = sum(recency_scores) / len(recency_scores) if recency_scores else 0.5
+    recency = [recency_weight(m["published_date"]) for m in matches]
+    recency_score = sum(recency) / len(recency) if recency else 0.5
 
-    confidence = round(
-        0.5 * source_count_score + 0.3 * avg_sentiment_score + 0.2 * avg_recency_score, 2
-    )
-    return confidence
+    return round(0.5 * source_score + 0.3 * sentiment_score + 0.2 * recency_score, 2)
 
 
 def impact_tier(confidence):
@@ -116,20 +135,15 @@ def impact_tier(confidence):
     return "Low"
 
 
-def is_relevant(title, excerpt):
-    """True if the chunk mentions NVIDIA or a known competitor."""
-    text = f"{title or ''} {excerpt or ''}".lower()
-    return any(company in text for company in RELEVANT_COMPANIES)
-
-
-def search_anchor(collection, phrase):
+def _semantic_search(collection, phrase):
+    """Embed `phrase`, pull nearest chunks, keep only NVIDIA-relevant ones."""
     results = collection.query(query_texts=[phrase], n_results=CANDIDATE_POOL_SIZE)
 
     matches = []
     for i in range(len(results["ids"][0])):
         meta = results["metadatas"][0][i]
-        title = meta.get("title")
         excerpt = results["documents"][0][i]
+        title = meta.get("title")
 
         if not is_relevant(title, excerpt):
             continue
@@ -144,124 +158,100 @@ def search_anchor(collection, phrase):
             "sentiment_label": meta.get("sentiment_label", "neutral"),
             "excerpt": excerpt,
         })
-
         if len(matches) >= TOP_K_PER_ANCHOR:
             break
-
     return matches
 
 
-def search_topic_in_category(collection, category, topic):
+def seek(category, topic):
     """
-    Retrieve chunks that are about the USER'S topic AND carry the flavor
-    of this category. We embed the topic fused with each of the category's
-    anchor phrases, so e.g. "supply chain" under "risks" searches things
-    like "supply chain disruption", "supply chain regulatory investigation",
-    etc. — not bare "supply chain", which would return the same chunks for
-    every category.
+    THE function the tools call.
 
-    Returns a deduped, recency-capped list of matches.
+    category : "opportunities" | "risks" | "trends" | "competitor_activity"
+    topic    : the user's question/topic, e.g. "supply chain"
+
+    Returns a dict: category, topic, confidence, impact, and a list of
+    the top evidence chunks. Empty evidence list if nothing relevant.
     """
-    seen_chunks = {}
+    if category not in ANCHOR_PHRASES:
+        raise ValueError(f"Unknown category: {category}. "
+                         f"Expected one of {list(ANCHOR_PHRASES)}")
+
+    collection = get_collection()
+
+    # fuse topic with each anchor, dedupe chunks across anchors
+    seen = {}
     for anchor in ANCHOR_PHRASES[category]:
-        fused_query = f"{topic} {anchor}"          # topic CROSSED with category lens
-        for m in search_anchor(collection, fused_query):
-            seen_chunks[m["chunk_id"]] = m          # dedupe across anchors
+        for m in _semantic_search(collection, f"{topic} {anchor}"):
+            seen[m["chunk_id"]] = m
 
-    matches = list(seen_chunks.values())
-
-    # We looped over several anchors, so cap the combined pool. Prefer the
-    # most recent matches when trimming.
-    matches.sort(key=lambda m: recency_weight(m["published_date"]), reverse=True)
-    return matches[:CANDIDATE_POOL_SIZE]
-
-
-def build_category_items(collection, category, phrases):
-    items = []
-    for phrase in phrases:
-        matches = search_anchor(collection, phrase)
-        if not matches:
-            continue
-
-        confidence = compute_confidence(matches, category)
-        unique_sources = list({m["doc_id"] for m in matches})
-
-        items.append({
-            "title": phrase,
-            "confidence": confidence,
-            "impact": impact_tier(confidence),
-            "supporting_doc_ids": unique_sources,
-            "evidence": [
-                {
-                    "doc_id": m["doc_id"],
-                    "source": m["source"],
-                    "title": m["title"],
-                    "url": m["url"],
-                    "excerpt": m["excerpt"],
-                }
-                for m in matches[:3]  # keep only top 3 excerpts per item for readability
-            ],
-        })
-    return items
-
-
-def build_category_items_for_topic(collection, category, topic):
-    """
-    Like build_category_items, but for a single free-text topic supplied
-    at question-time by the agent (instead of the fixed ANCHOR_PHRASES
-    list). Used by tools.py so a question like "Should I invest in supply
-    chain or manufacturing?" gets evidence that is BOTH about that topic
-    AND shaped by the category lens (risk / opportunity / trend), rather
-    than the same topic-only chunks for every category.
-    """
-    matches = search_topic_in_category(collection, category, topic)
+    matches = list(seen.values())
     if not matches:
-        return []
+        return {"category": category, "topic": topic,
+                "confidence": 0.0, "impact": "Low", "evidence": []}
 
+    # most recent first, then cap the pool
+    matches.sort(key=lambda m: recency_weight(m["published_date"]), reverse=True)
+    matches = matches[:CANDIDATE_POOL_SIZE]
+
+    # confidence uses the FULL match pool (source_count_score already
+    # counts unique doc_ids, so it's unaffected by what we do next)
     confidence = compute_confidence(matches, category)
-    unique_sources = list({m["doc_id"] for m in matches})
+    impact = impact_tier(confidence)
 
-    return [{
-        "title": topic,
+    # The evidence we SHOW, however, should come from distinct documents.
+    # Without this, a topic that strongly matches only 1-2 articles ends
+    # up returning 5 overlapping chunks of those same 1-2 articles --
+    # looks like broad evidence, but it's really one source repeated.
+    seen_docs = set()
+    diverse_evidence = []
+    for m in matches:
+        doc_key = (m["source"], m["title"])
+        if doc_key in seen_docs:
+            continue
+        seen_docs.add(doc_key)
+        diverse_evidence.append(m)
+        if len(diverse_evidence) >= 5:
+            break
+
+    return {
+        "category": category,
+        "topic": topic,
         "confidence": confidence,
-        "impact": impact_tier(confidence),
-        "supporting_doc_ids": unique_sources,
+        "impact": impact,
         "evidence": [
             {
-                "doc_id": m["doc_id"],
                 "source": m["source"],
                 "title": m["title"],
                 "url": m["url"],
                 "excerpt": m["excerpt"],
             }
-            for m in matches[:3]
+            for m in diverse_evidence
         ],
-    }]
-
-
-def main():
-    collection = get_collection()
-    if collection.count() == 0:
-        print("ChromaDB collection is empty. Run store.py first.")
-        return
-
-    evidence = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
-        "opportunities": build_category_items(collection, "opportunities", ANCHOR_PHRASES["opportunities"]),
-        "risks": build_category_items(collection, "risks", ANCHOR_PHRASES["risks"]),
-        "trends": build_category_items(collection, "trends", ANCHOR_PHRASES["trends"]),
-        "competitor_activity": build_category_items(collection, "competitor_activity", ANCHOR_PHRASES["competitor_activity"]),
     }
-
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(evidence, f, indent=2, ensure_ascii=False)
-
-    print(f"Opportunities found: {len(evidence['opportunities'])}")
-    print(f"Risks found: {len(evidence['risks'])}")
-    print(f"Trends found: {len(evidence['trends'])}")
-    print(f"Competitor activity items found: {len(evidence['competitor_activity'])}")
-    print(f"Saved to {OUTPUT_FILE}")
 
 
 if __name__ == "__main__":
-    main()
+    # Standalone smoke test — proves the engine identifies evidence
+    # for a topic before any agent/tool exists.
+    collection = get_collection()
+    count = collection.count()
+    print(f"ChromaDB has {count} chunks stored.\n")
+    if count == 0:
+        print("Collection is empty — run Box 1 (store.py) first.")
+        raise SystemExit
+
+    demos = [
+        ("risks", "supply chain"),
+        ("opportunities", "data center"),
+        ("competitor_activity", "AMD"),
+    ]
+    for category, topic in demos:
+        result = seek(category, topic)
+        print("=" * 60)
+        print(f"seek('{category}', '{topic}')")
+        print(f"  confidence: {result['confidence']}  impact: {result['impact']}")
+        print(f"  evidence pieces: {len(result['evidence'])}")
+        for ev in result["evidence"][:3]:
+            print(f"    [{ev['source']}] {ev['title']} — {ev['excerpt'][:120]}")
+        print()

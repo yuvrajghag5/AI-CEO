@@ -1,7 +1,6 @@
 
 
-NOD = 100
-
+NOD = 125
 CHUNK_SIZE = 400
 CHUNK_OVERLAP = 40
 
