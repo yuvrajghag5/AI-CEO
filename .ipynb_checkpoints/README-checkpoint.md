@@ -101,7 +101,7 @@ flowchart TD
 
     subgraph E[Strategic Intelligence Engine]
         E1[engine.seek category, topic]
-        E2[Anchor-based semantic search]
+        E2[Topic + anchor-phrase<br/>semantic search]
         E3[NVIDIA / competitor filtering]
         E4[Confidence scoring]
     end
